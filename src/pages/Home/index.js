@@ -1,13 +1,8 @@
-const divStyle = {
-  display: 'flex',
-  height: '100vh',
-  alignItems: 'center',
-  justifyContent: 'center',
-};
+import { Container } from './styles';
 
 function Home() {
   return (
-    <div style={divStyle}>
+    <div style={Container}>
       <h1>Hello Galera</h1>
     </div>
   );
