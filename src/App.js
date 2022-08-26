@@ -7,7 +7,7 @@ function App() {
   return (
     <ThemeProvider theme={defaultColors}>
       <GlobalStyles />
-      <Home />;
+      <Home />
     </ThemeProvider>
   );
 }

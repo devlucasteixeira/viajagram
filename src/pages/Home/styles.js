@@ -1,41 +1,40 @@
-import colors from '../../styles/colors';
+import styled from 'styled-components';
 
-export const Parent = {
-  display: 'flex',
-  flexDirection: 'column',
-  height: '100vh',
-  justifyContent: 'center',
-  alignItems: 'center',
-  background: colors.BACKGROUND,
-  color: colors.BLACK,
-};
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  align-items: center;
+  background: ${props => props.theme.BACKGROUND};
+  color: ${props => props.theme.BLACK};
+`;
 
-export const Header = {
-  display: 'flex',
-  background: 'blue',
-  height: '7%',
-  width: '100vw',
-  justifyContent: 'center',
-  alignItems: 'center',
-};
+export const Header = styled.header`
+  display: flex;
+  background: blue;
+  height: 7%;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+`;
 
-export const Container = {
-  display: 'flex',
-  height: '100vh',
-  width: '50%',
-  justifyContent: 'center',
-  background: colors.BACKGROUND,
-  color: colors.BLACK,
-};
+export const MainContainer = styled.main`
+  height: 100vh;
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  background: ${props => props.theme.BACKGROUND};
+  color: ${props => props.theme.BLACK};
+`;
 
-export const Container1 = {
-  display: 'flex',
-  flex: 1.3,
-  background: 'red',
-};
+export const MainContent = styled.div`
+  display: flex;
+  flex: 1.3;
+  background: red;
+`;
 
-export const Container2 = {
-  display: 'flex',
-  flex: 1,
-  background: 'green',
-};
+export const Aside = styled.div`
+  display: flex;
+  flex: 1;
+  background: green;
+`;
