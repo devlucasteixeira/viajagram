@@ -76,14 +76,12 @@ export const Container = styled.div`
   }
 
   .feed-title {
-    padding: 0 8px;
+    margin: 8px 0;
     font-size: 1.3rem;
-
-    word-break: break-all;
   }
 
-  .content {
-    min-height: 280px;
+  .feed-photo {
+    max-height: 380px;
 
     border-radius: 16px;
 
@@ -114,7 +112,7 @@ export const Container = styled.div`
       border: none;
     }
 
-    .loved,
+    .liked,
     .comments {
       display: flex;
       align-items: center;
@@ -125,7 +123,7 @@ export const Container = styled.div`
       color: ${props => props.theme.TEXT};
     }
 
-    .loved {
+    .liked {
       margin-right: 16px;
     }
 
@@ -140,7 +138,7 @@ export const Container = styled.div`
     padding: 0 8px;
   }
 
-  .publish {
+  .publish-comment {
     display: flex;
     align-items: center;
 

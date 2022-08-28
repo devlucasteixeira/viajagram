@@ -7,7 +7,6 @@ function Feed() {
     <Container>
       <FeedCard />
       <FeedCard />
-      <FeedCard />
     </Container>
   );
 }
