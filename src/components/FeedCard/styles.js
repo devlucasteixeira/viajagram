@@ -60,7 +60,6 @@ export const Container = styled.div`
         gap: 4px;
         font-size: 0.8rem;
         color: ${props => props.theme.TEXT};
-
       }
     }
 
@@ -122,12 +121,6 @@ export const Container = styled.div`
     .liked {
       margin-right: 16px;
     }
-
-    .comments {
-      img {
-        width: 18px;
-      }
-    }
   }
 
   footer {
@@ -140,6 +133,10 @@ export const Container = styled.div`
 
     margin: 16px 0;
 
+    .btn-emojis {
+      border: 0;
+    }
+
     .comment-input {
       border: none;
       flex: 1;
@@ -148,6 +145,10 @@ export const Container = styled.div`
       outline: none;
 
       resize: vertical;
+
+      &::placeholder {
+        line-height: 30px;
+      }
     }
 
     .btn-publish {

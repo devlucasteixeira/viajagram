@@ -1,10 +1,9 @@
 import { Container } from './styles';
 
-import heartIcon from '../../assets/icons/heart.png';
-import {FaComment} from 'react-icons/fa';
-import {ImLocation} from 'react-icons/im';
-import {BsFillClockFill, BsEmojiSmile} from 'react-icons/bs';
-import { IconContext } from 'react-icons/lib';
+import { BsFillHeartFill } from 'react-icons/bs';
+import { FaComment } from 'react-icons/fa';
+import { ImLocation } from 'react-icons/im';
+import { BsFillClockFill, BsEmojiSmile } from 'react-icons/bs';
 
 const postList = [
   {
@@ -79,16 +78,12 @@ function FeedCard() {
 
                     <div className="details">
                       <div className="location">
-                        <IconContext.Provider value={{color: '#E77F76'}}>
-                       <ImLocation/> {/* incon location */}
-                       </IconContext.Provider> 
+                        <ImLocation color="#E77F76" /> {/* incon location */}
                         <span>{user.city}</span>
                       </div>
 
                       <div className="times-ago">
-                      <IconContext.Provider value={{color: '#E77F76'}}>
-                      <BsFillClockFill/>  {/* incon clock */}
-                      </IconContext.Provider>
+                        <BsFillClockFill color="#E77F76" /> {/* incon clock */}
                         <span>{createAt}</span>
                       </div>
                     </div>
@@ -102,19 +97,19 @@ function FeedCard() {
               </div>
               <section className="actions">
                 <button className="liked">
-                  <img src={heartIcon} alt="loved" />
+                  <BsFillHeartFill size={18} color="#E77F76" />
                   <span>{likes}</span>
                 </button>
                 <button className="comments">
-                <FaComment/> {/* incon comments */}
+                  <FaComment size={18} /> {/* incon comments */}
                   <span>{comments}</span>
                 </button>
               </section>
 
               <form className="publish-comment">
-                <IconContext.Provider value={{size: '25px'}}>
-              <BsEmojiSmile/>
-              </IconContext.Provider>
+                <button className="btn-emojis">
+                  <BsEmojiSmile size="25px" opacity={0.8} />
+                </button>
                 <textarea
                   type="text"
                   className="comment-input"
