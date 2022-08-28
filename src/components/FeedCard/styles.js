@@ -29,7 +29,7 @@ export const Container = styled.div`
     .author {
       display: flex;
       align-items: center;
-      gap: 4px;
+      gap: 6px;
 
       img {
         width: 35px;
@@ -61,10 +61,6 @@ export const Container = styled.div`
         font-size: 0.8rem;
         color: ${props => props.theme.TEXT};
 
-        img {
-          width: 12px;
-          height: 14px;
-        }
       }
     }
 
