@@ -1,4 +1,5 @@
 import { Aside, Container, Header, MainContainer, MainContent } from './styles';
+import UserInfoComponent from '../../components/userInfo';
 
 function Home() {
   return (
@@ -11,7 +12,7 @@ function Home() {
           <h1>CONTAINER 1</h1>
         </MainContent>
         <Aside>
-          <h1>CONTAINER 2</h1>
+          <UserInfoComponent />
         </Aside>
       </MainContainer>
     </Container>
