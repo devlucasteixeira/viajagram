@@ -10,7 +10,6 @@ export const Container = styled.div`
 
   min-height: 300px;
 
-  font-size: 14px;
   margin-bottom: 20px;
 
   padding: 0 8px;
@@ -21,6 +20,8 @@ export const Container = styled.div`
 
   header {
     padding: 16px 0;
+
+    font-size: 0.9rem;
 
     display: flex;
     justify-content: space-between;
@@ -51,15 +52,15 @@ export const Container = styled.div`
         gap: 10px;
 
         margin-top: 8px;
-      }
 
-      .location,
-      .times-ago {
-        display: flex;
-        align-items: center;
-        gap: 4px;
-        font-size: 0.8rem;
-        color: ${props => props.theme.TEXT};
+        .location,
+        .times-ago {
+          display: flex;
+          align-items: center;
+          gap: 4px;
+          font-size: 0.7rem;
+          color: ${props => props.theme.TEXT};
+        }
       }
     }
 
@@ -67,6 +68,21 @@ export const Container = styled.div`
       font-weight: bold;
       border: none;
       font-size: 18px;
+
+      .dots {
+        display: flex;
+        gap: 2px;
+
+        cursor: pointer;
+
+        span {
+          height: 5px;
+          width: 5px;
+
+          border-radius: 50%;
+          background-color: ${props => props.theme.TEXT};
+        }
+      }
     }
   }
 
@@ -130,24 +146,46 @@ export const Container = styled.div`
   .publish-comment {
     display: flex;
     align-items: center;
+    justify-content: center;
 
+    gap: 0 4px;
     margin: 16px 0;
 
     .btn-emojis {
       border: 0;
+
+      width: 25px;
+      height: 25px;
+
+      border-radius: 50%;
+      margin-right: 4px;
+
+      svg {
+        transition: all 0.5s;
+      }
+      &:hover {
+        svg {
+          color: #e0d857;
+        }
+      }
     }
 
     .comment-input {
+      height: 30px;
+
       border: none;
+      border-bottom: 1px solid ${props => props.theme.TEXT};
+
+      /* border-radius: 4px; */
       flex: 1;
 
       padding: 8px;
       outline: none;
 
-      resize: vertical;
+      resize: none;
 
-      &::placeholder {
-        line-height: 30px;
+      &::scroll-snap-type {
+        background: transparent;
       }
     }
 
@@ -155,6 +193,15 @@ export const Container = styled.div`
       padding: 8px 16px;
       border: none;
       color: #326bab;
+
+      border-radius: 4px;
+      opacity: 0.7;
+
+      transition: all 0.7s;
+
+      &:hover {
+        background-color: #e1f1f1;
+      }
     }
   }
 `;

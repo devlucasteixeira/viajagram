@@ -11,8 +11,7 @@ const postList = [
     user: {
       name: 'Jorge Nascimento',
       city: 'São Paulo',
-      profileImageUrl:
-        'https://w7.pngwing.com/pngs/400/768/png-transparent-laptop-computer-icons-user-drawing-computer-user-miscellaneous-blue-rectangle-thumbnail.png',
+      profileImageUrl: 'https://avatars.githubusercontent.com/u/62806739?v=4',
     },
     card: {
       title: 'Este é um post teste de criação e estilização.',
@@ -62,12 +61,12 @@ const postList = [
 function FeedCard() {
   console.log(postList);
   return (
-    <Container>
+    <>
       {postList.length > 0 &&
         postList.map(post => {
           const { id, user, card, likes, comments, createAt } = post;
           return (
-            <div key={id}>
+            <Container key={id}>
               <header>
                 <div className="author">
                   <img src={user.profileImageUrl} alt="user profile" />
@@ -78,18 +77,24 @@ function FeedCard() {
 
                     <div className="details">
                       <div className="location">
-                        <ImLocation color="#E77F76" /> {/* incon location */}
+                        <ImLocation color="#E77F76" /> {/* icon location */}
                         <span>{user.city}</span>
                       </div>
 
                       <div className="times-ago">
-                        <BsFillClockFill color="#E77F76" /> {/* incon clock */}
+                        <BsFillClockFill color="#E77F76" /> {/* icon clock */}
                         <span>{createAt}</span>
                       </div>
                     </div>
                   </div>
                 </div>
-                <button>...</button>
+                <button>
+                  <div className="dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+                </button>
               </header>
               <p className="feed-title ">{card.title}</p>
               <div className="feed-photo">
@@ -101,28 +106,26 @@ function FeedCard() {
                   <span>{likes}</span>
                 </button>
                 <button className="comments">
-                  <FaComment size={18} /> {/* incon comments */}
+                  <FaComment size={18} /> {/* icon comments */}
                   <span>{comments}</span>
                 </button>
               </section>
 
               <form className="publish-comment">
-                <button className="btn-emojis">
-                  <BsEmojiSmile size="25px" opacity={0.8} />
+                <button type="button" className="btn-emojis">
+                  <BsEmojiSmile size="25px" />
                 </button>
-                <textarea
+                <input
                   type="text"
                   className="comment-input"
                   placeholder="Adicione um comentário"
-                />{' '}
-                <button className="btn-publish" disabled>
-                  Publicar
-                </button>
+                />
+                <button className="btn-publish">Publicar</button>
               </form>
-            </div>
+            </Container>
           );
         })}
-    </Container>
+    </>
   );
 }
 
