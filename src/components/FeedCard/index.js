@@ -118,7 +118,7 @@ function FeedCard() {
                   <BsFillHeartFill size={18} color="#E77F76" />
                   <span>{likes}</span>
                 </LikedButton>
-                <CommentsButton className="comments">
+                <CommentsButton>
                   <FaComment size={18} /> {/* icon comments */}
                   <span>{comments}</span>
                 </CommentsButton>

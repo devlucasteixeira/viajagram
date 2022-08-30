@@ -13,13 +13,6 @@ export const Container = styled.div`
   margin-bottom: 20px;
 
   padding: 0 8px;
-
-  footer {
-    padding: 0 8px;
-  }
-
-  .publish-comment {
-  }
 `;
 
 export const CardHeader = styled.header`
@@ -85,7 +78,7 @@ export const CardButtonMenu = styled.button`
       width: 5px;
 
       border-radius: 50%;
-      background-color: ${props => props.theme.TEXT};
+      background-color: #a7a7a4;
     }
   }
 `;
@@ -93,6 +86,8 @@ export const CardButtonMenu = styled.button`
 export const CardTitle = styled.p`
   margin: 8px 0;
   font-size: 1.3rem;
+
+  word-break: break-all;
 `;
 
 export const CardPhoto = styled.div`
@@ -188,6 +183,11 @@ export const FormPublishComment = styled.form`
     outline: none;
 
     resize: none;
+
+    transition: all 0.4s;
+    &:focus {
+      border-bottom: 1px solid ${props => props.theme.TEXT_BLUE};
+    }
   }
 
   button.btn-publish {
