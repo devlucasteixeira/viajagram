@@ -7,8 +7,13 @@ export default createGlobalStyle`
   box-sizing: border-box;
 }
 
-textarea{
+textarea, button{
   font-family: inherit;
+}
+
+button, a {
+  cursor: pointer;
+  border: none;
 }
 
 html,

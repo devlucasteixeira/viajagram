@@ -1,4 +1,15 @@
-import { Container } from './styles';
+import {
+  Container,
+  CardHeader,
+  CardButtonMenu,
+  CardTitle,
+  CardPhoto,
+  CardActions,
+  LikedButton,
+  CommentsButton,
+  FormPublishComment,
+  EmojisButton,
+} from './styles';
 
 import { BsFillHeartFill } from 'react-icons/bs';
 import { FaComment } from 'react-icons/fa';
@@ -59,7 +70,6 @@ const postList = [
 ];
 
 function FeedCard() {
-  console.log(postList);
   return (
     <>
       {postList.length > 0 &&
@@ -67,7 +77,7 @@ function FeedCard() {
           const { id, user, card, likes, comments, createAt } = post;
           return (
             <Container key={id}>
-              <header>
+              <CardHeader>
                 <div className="author">
                   <img src={user.profileImageUrl} alt="user profile" />
                   <div>
@@ -88,40 +98,39 @@ function FeedCard() {
                     </div>
                   </div>
                 </div>
-                <button>
+                <CardButtonMenu>
                   <div className="dots">
                     <span></span>
                     <span></span>
                     <span></span>
                   </div>
-                </button>
-              </header>
-              <p className="feed-title ">{card.title}</p>
-              <div className="feed-photo">
+                </CardButtonMenu>
+              </CardHeader>
+
+              <CardTitle>{card.title}</CardTitle>
+
+              <CardPhoto>
                 <img src={card.imageUrl} alt="card alt" />
-              </div>
-              <section className="actions">
-                <button className="liked">
+              </CardPhoto>
+
+              <CardActions>
+                <LikedButton>
                   <BsFillHeartFill size={18} color="#E77F76" />
                   <span>{likes}</span>
-                </button>
-                <button className="comments">
+                </LikedButton>
+                <CommentsButton className="comments">
                   <FaComment size={18} /> {/* icon comments */}
                   <span>{comments}</span>
-                </button>
-              </section>
+                </CommentsButton>
+              </CardActions>
 
-              <form className="publish-comment">
-                <button type="button" className="btn-emojis">
+              <FormPublishComment>
+                <EmojisButton type="button">
                   <BsEmojiSmile size="25px" />
-                </button>
-                <input
-                  type="text"
-                  className="comment-input"
-                  placeholder="Adicione um comentário"
-                />
+                </EmojisButton>
+                <input type="text" placeholder="Adicione um comentário" />
                 <button className="btn-publish">Publicar</button>
-              </form>
+              </FormPublishComment>
             </Container>
           );
         })}
