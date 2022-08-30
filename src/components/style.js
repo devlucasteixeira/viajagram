@@ -4,7 +4,7 @@ export const Container = styled.div`
   width: 100%;
   height: 10%;
   display: flex;
-  gap: 30%;
+  gap: 20%;
   align-items: center;
   margin-bottom: 10px;
 `;
@@ -12,7 +12,7 @@ export const Container = styled.div`
 export const ContainerSide = styled.div`
   display: flex;
   gap: 25%;
-  width: 61%;
+  width: 70%;
 `;
 
 export const ContainerText = styled.div`
@@ -22,7 +22,7 @@ export const ContainerText = styled.div`
   width: 62%;
 `;
 
-export const ContainerSugestoes = styled.div`
+export const ContainerSuggest = styled.div`
   display: flex;
   justify-content: space-between;
 `;

@@ -3,10 +3,33 @@ import {
   Container,
   ContainerSide,
   ContainerText,
-  ContainerSugestoes,
+  ContainerSuggest,
   ListContainer,
   ContainerButtons,
 } from './style';
+
+const usersSuggest = [
+  {
+    name: 'spicyeconomy',
+    suggest: 'Sugestões para você',
+  },
+  {
+    name: 'thiagoviannaed',
+    suggest: 'Seguido(a) por adilsonbuenog',
+  },
+  {
+    name: 'dhashsf',
+    suggest: 'Sugestões para você',
+  },
+  {
+    name: 'hange.cdn',
+    suggest: 'Segue você',
+  },
+  {
+    name: 'wescley0101',
+    suggest: 'Segue você',
+  },
+];
 
 export default function userInfo() {
   return (
@@ -23,71 +46,27 @@ export default function userInfo() {
           <ContainerButtons>Mudar</ContainerButtons>
         </Container>
         <div>
-          <ContainerSugestoes>
+          <ContainerSuggest>
             <span>Sugestões para você</span>
             <span>Ver Tudo</span>
-          </ContainerSugestoes>
+          </ContainerSuggest>
           <ListContainer>
-            <li>
-              <Container>
-                <ContainerSide>
-                  <div className="profile-image">Image</div>
-                  <ContainerText>
-                    <span>programadorzao</span>
-                    <span>Sugestões para você</span>
-                  </ContainerText>
-                </ContainerSide>
-                <ContainerButtons>Seguir</ContainerButtons>
-              </Container>
-            </li>
-            <li>
-              <Container>
-                <ContainerSide>
-                  <div className="profile-image">Image</div>
-                  <ContainerText>
-                    <span>programadorzao</span>
-                    <span>Seguido(a) por adilsonhuenog</span>
-                  </ContainerText>
-                </ContainerSide>
-                <ContainerButtons>Seguir</ContainerButtons>
-              </Container>
-            </li>
-            <li>
-              <Container>
-                <ContainerSide>
-                  <div className="profile-image">Image</div>
-                  <ContainerText>
-                    <span>programadorzao</span>
-                    <span>Sugestões para você</span>
-                  </ContainerText>
-                </ContainerSide>
-                <ContainerButtons>Seguir</ContainerButtons>
-              </Container>
-            </li>
-            <li>
-              <Container>
-                <ContainerSide>
-                  <div className="profile-image">Image</div>
-                  <ContainerText>
-                    <span>programadorzao</span>
-                    <span>Segue você</span>
-                  </ContainerText>
-                </ContainerSide>
-                <ContainerButtons>Seguir</ContainerButtons>
-              </Container>
-            </li>
-            <li>
-              <Container>
-                <ContainerSide>
-                  <div className="profile-image">Image</div>
-                  <ContainerText>
-                    <span>programadorzao</span>
-                    <span>Segue você</span>
-                  </ContainerText>
-                </ContainerSide>
-                <ContainerButtons>Seguir</ContainerButtons>
-              </Container>
-            </li>
+            {usersSuggest.map(user => {
+              return (
+                <li>
+                  <Container>
+                    <ContainerSide>
+                      <div className="profile-image">Image</div>
+                      <ContainerText>
+                        <span>{user.name}</span>
+                        <span>{user.suggest}</span>
+                      </ContainerText>
+                    </ContainerSide>
+                    <ContainerButtons>Seguir</ContainerButtons>
+                  </Container>
+                </li>
+              );
+            })}
           </ListContainer>
         </div>
       </div>
