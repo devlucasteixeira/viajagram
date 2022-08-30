@@ -6,6 +6,9 @@ import {
   ContainerSuggest,
   ListContainer,
   ContainerButtons,
+  ProfileText,
+  ProfileDescription,
+  SuggestText,
 } from './style';
 
 const usersSuggest = [
@@ -39,16 +42,16 @@ export default function userInfo() {
           <ContainerSide>
             <div className="profile-image">Image</div>
             <ContainerText>
-              <span>programadorzao</span>
-              <span>Joabson Souza</span>
+              <ProfileText>programadorzao</ProfileText>
+              <ProfileDescription>Joabson Souza</ProfileDescription>
             </ContainerText>
           </ContainerSide>
           <ContainerButtons>Mudar</ContainerButtons>
         </Container>
         <div>
           <ContainerSuggest>
-            <span>Sugestões para você</span>
-            <span>Ver Tudo</span>
+            <SuggestText>Sugestões para você</SuggestText>
+            <span>Ver tudo</span>
           </ContainerSuggest>
           <ListContainer>
             {usersSuggest.map(user => {
@@ -58,8 +61,8 @@ export default function userInfo() {
                     <ContainerSide>
                       <div className="profile-image">Image</div>
                       <ContainerText>
-                        <span>{user.name}</span>
-                        <span>{user.suggest}</span>
+                        <ProfileText>{user.name}</ProfileText>
+                        <ProfileDescription>{user.suggest}</ProfileDescription>
                       </ContainerText>
                     </ContainerSide>
                     <ContainerButtons>Seguir</ContainerButtons>

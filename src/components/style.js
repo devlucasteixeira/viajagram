@@ -22,9 +22,26 @@ export const ContainerText = styled.div`
   width: 62%;
 `;
 
+export const ProfileText = styled.span`
+  font-size: 14px;
+  font-weight: 600;
+`;
+
+export const ProfileDescription = styled.span`
+  font-size: 14px;
+  color: #8e8e8e;
+`;
+
+export const SuggestText = styled.span`
+  color: #8e8e8e;
+  margin-top: 10px;
+  margin-bottom: 20px;
+`;
+
 export const ContainerSuggest = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: baseline;
 `;
 
 export const ListContainer = styled.ul`
