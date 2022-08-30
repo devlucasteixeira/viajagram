@@ -35,6 +35,7 @@ export const MainContent = styled.div`
 
 export const Aside = styled.div`
   display: flex;
+  flex-direction: column;
   flex: 1;
-  background: green;
+  background: #f5f5f5;
 `;
