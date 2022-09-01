@@ -25,7 +25,7 @@ export const CardHeader = styled.header`
   align-items: center;
 `;
 
-export const Author = styled.div`
+export const CardAuthor = styled.div`
   display: flex;
   align-items: center;
   gap: 6px;
@@ -67,18 +67,13 @@ export const CardButtonMenu = styled.button`
   border: none;
   font-size: 18px;
 
-  .dots {
-    display: flex;
-    gap: 2px;
+  svg {
+    color: #a7a7a4;
 
-    cursor: pointer;
+    transition: all 0.4s;
 
-    span {
-      height: 5px;
-      width: 5px;
-
-      border-radius: 50%;
-      background-color: #a7a7a4;
+    &:hover {
+      color: #868684;
     }
   }
 `;

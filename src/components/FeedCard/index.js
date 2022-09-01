@@ -1,7 +1,9 @@
+import { useEffect, useState } from 'react';
+
 import {
   Container,
   CardHeader,
-  Author,
+  CardAuthor,
   CardButtonMenu,
   CardTitle,
   CardPhoto,
@@ -18,7 +20,8 @@ import { BsFillHeartFill } from 'react-icons/bs';
 import { FaComment } from 'react-icons/fa';
 import { ImLocation } from 'react-icons/im';
 import { BsFillClockFill, BsEmojiSmile } from 'react-icons/bs';
-import { useEffect, useState } from 'react';
+import { HiDotsHorizontal } from 'react-icons/hi';
+import Comments from '../Comments';
 
 const postList = [
   {
@@ -27,6 +30,7 @@ const postList = [
       name: 'Jorge Nascimento',
       city: 'São Paulo',
       profileImageUrl: 'https://avatars.githubusercontent.com/u/62806739?v=4',
+      login: 'nascimento_',
     },
     card: {
       title: 'Este é um post teste de criação e estilização.',
@@ -44,6 +48,7 @@ const postList = [
       city: 'New York',
       profileImageUrl:
         'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80',
+      login: 'lucas',
     },
     card: {
       title: 'here we go, other post for development feed.',
@@ -61,6 +66,7 @@ const postList = [
       city: 'Natal',
       profileImageUrl:
         'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80',
+      login: 'jane_doe',
     },
     card: {
       title: 'Diretamente de Natal, imagem de drone, uma maravilha de lugar.',
@@ -90,7 +96,7 @@ function FeedCard() {
           return (
             <Container key={id}>
               <CardHeader>
-                <Author>
+                <CardAuthor>
                   <img src={user.profileImageUrl} alt="user profile" />
                   <div>
                     <a href="/">
@@ -109,13 +115,9 @@ function FeedCard() {
                       </div>
                     </div>
                   </div>
-                </Author>
+                </CardAuthor>
                 <CardButtonMenu>
-                  <div className="dots">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                  </div>
+                  <HiDotsHorizontal />
                 </CardButtonMenu>
               </CardHeader>
 
@@ -139,7 +141,7 @@ function FeedCard() {
                   <span>{comments}</span>
                 </CommentsButton>
               </CardActions>
-
+              <Comments />
               <FormPublishComment>
                 <EmojisButton type="button">
                   <BsEmojiSmile size="25px" />
