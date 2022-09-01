@@ -9,7 +9,6 @@ import {
   LikedButton,
   CommentsButton,
   FormPublishComment,
-  EmojisButton,
 } from './styles';
 
 import Spinner from '../Spinner';
@@ -17,8 +16,9 @@ import Spinner from '../Spinner';
 import { BsFillHeartFill } from 'react-icons/bs';
 import { FaComment } from 'react-icons/fa';
 import { ImLocation } from 'react-icons/im';
-import { BsFillClockFill, BsEmojiSmile } from 'react-icons/bs';
+import { BsFillClockFill } from 'react-icons/bs';
 import { useEffect, useState } from 'react';
+import InputEmoji from "react-input-emoji";
 
 const postList = [
   {
@@ -43,7 +43,7 @@ const postList = [
       name: 'Lucas Teixeira',
       city: 'New York',
       profileImageUrl:
-        'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80',
+        'https://avatars.githubusercontent.com/u/81398225?v=4',
     },
     card: {
       title: 'here we go, other post for development feed.',
@@ -81,6 +81,8 @@ function FeedCard() {
       setIsPhotoLoading(false);
     }, 1000);
   }, []);
+
+    const [value, setValue] = useState("");
 
   return (
     <>
@@ -141,10 +143,12 @@ function FeedCard() {
               </CardActions>
 
               <FormPublishComment>
-                <EmojisButton type="button">
-                  <BsEmojiSmile size="25px" />
-                </EmojisButton>
-                <input type="text" placeholder="Adicione um comentário" />
+              <InputEmoji
+                placeholder="Adicione um comentário..."
+                value={value}
+                onChange={setValue}
+                height={25}
+              />
                 <button className="btn-publish">Publicar</button>
               </FormPublishComment>
             </Container>
