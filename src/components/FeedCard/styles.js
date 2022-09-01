@@ -134,30 +134,7 @@ export const CommentsButton = styled.button`
   color: ${props => props.theme.TEXT};
 `;
 
-export const EmojisButton = styled.button`
-  width: 25px;
-  height: 25px;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border: 0;
-  border-radius: 50%;
-
-  overflow: hidden;
-
-  svg {
-    transition: all 0.5s;
-    opacity: 0.5;
-  }
-  &:hover {
-    svg {
-      background-color: #dbdb59;
-      opacity: initial;
-    }
-  }
-`;
 
 export const FormPublishComment = styled.form`
   display: flex;
