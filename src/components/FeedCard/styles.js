@@ -91,6 +91,7 @@ export const CardTitle = styled.p`
 `;
 
 export const CardPhoto = styled.div`
+  min-height: 300px;
   max-height: 380px;
 
   border-radius: 16px;

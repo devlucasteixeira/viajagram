@@ -12,10 +12,13 @@ import {
   EmojisButton,
 } from './styles';
 
+import Spinner from '../Spinner';
+
 import { BsFillHeartFill } from 'react-icons/bs';
 import { FaComment } from 'react-icons/fa';
 import { ImLocation } from 'react-icons/im';
 import { BsFillClockFill, BsEmojiSmile } from 'react-icons/bs';
+import { useEffect, useState } from 'react';
 
 const postList = [
   {
@@ -71,6 +74,14 @@ const postList = [
 ];
 
 function FeedCard() {
+  const [isPhotoLoading, setIsPhotoLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsPhotoLoading(false);
+    }, 1000);
+  }, []);
+
   return (
     <>
       {postList.length > 0 &&
@@ -111,7 +122,11 @@ function FeedCard() {
               <CardTitle>{card.title}</CardTitle>
 
               <CardPhoto>
-                <img src={card.imageUrl} alt="card alt" />
+                {isPhotoLoading ? (
+                  <Spinner size={20} />
+                ) : (
+                  <img src={card.imageUrl} alt="card alt" />
+                )}
               </CardPhoto>
 
               <CardActions>
