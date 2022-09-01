@@ -18,15 +18,12 @@ import Spinner from '../Spinner';
 import { BsFillHeartFill } from 'react-icons/bs';
 import { FaComment } from 'react-icons/fa';
 import { ImLocation } from 'react-icons/im';
-<<<<<<< HEAD
-import { BsFillClockFill, BsEmojiSmile } from 'react-icons/bs';
+
+import { BsFillClockFill } from 'react-icons/bs';
 import { HiDotsHorizontal } from 'react-icons/hi';
 import Comments from '../Comments';
-=======
-import { BsFillClockFill } from 'react-icons/bs';
-import { useEffect, useState } from 'react';
-import InputEmoji from "react-input-emoji";
->>>>>>> 0a1a534fd23d6c64fc8106f076e67ff41129a3ac
+
+import InputEmoji from 'react-input-emoji';
 
 const postList = [
   {
@@ -51,13 +48,8 @@ const postList = [
     user: {
       name: 'Lucas Teixeira',
       city: 'New York',
-      profileImageUrl:
-<<<<<<< HEAD
-        'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80',
+      profileImageUrl: 'https://avatars.githubusercontent.com/u/81398225?v=4',
       login: 'lucas',
-=======
-        'https://avatars.githubusercontent.com/u/81398225?v=4',
->>>>>>> 0a1a534fd23d6c64fc8106f076e67ff41129a3ac
     },
     card: {
       title: 'here we go, other post for development feed.',
@@ -97,7 +89,7 @@ function FeedCard() {
     }, 1000);
   }, []);
 
-    const [value, setValue] = useState("");
+  const [value, setValue] = useState('');
 
   return (
     <>
@@ -152,14 +144,14 @@ function FeedCard() {
                   <span>{comments}</span>
                 </CommentsButton>
               </CardActions>
-
+              <Comments />
               <FormPublishComment>
-              <InputEmoji
-                placeholder="Adicione um comentário..."
-                value={value}
-                onChange={setValue}
-                height={25}
-              />
+                <InputEmoji
+                  placeholder="Adicione um comentário..."
+                  value={value}
+                  onChange={setValue}
+                  height={25}
+                />
                 <button className="btn-publish">Publicar</button>
               </FormPublishComment>
             </Container>
