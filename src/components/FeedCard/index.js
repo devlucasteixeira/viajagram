@@ -1,6 +1,7 @@
 import {
   Container,
   CardHeader,
+  Author,
   CardButtonMenu,
   CardTitle,
   CardPhoto,
@@ -78,7 +79,7 @@ function FeedCard() {
           return (
             <Container key={id}>
               <CardHeader>
-                <div className="author">
+                <Author>
                   <img src={user.profileImageUrl} alt="user profile" />
                   <div>
                     <a href="/">
@@ -97,7 +98,7 @@ function FeedCard() {
                       </div>
                     </div>
                   </div>
-                </div>
+                </Author>
                 <CardButtonMenu>
                   <div className="dots">
                     <span></span>

@@ -23,41 +23,41 @@ export const CardHeader = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
+`;
 
-  .author {
+export const Author = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  img {
+    width: 35px;
+    height: 35px;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
+  .details {
     display: flex;
-    align-items: center;
-    gap: 6px;
 
-    img {
-      width: 35px;
-      height: 35px;
+    gap: 10px;
 
-      border-radius: 50%;
+    margin-top: 8px;
 
-      overflow: hidden;
-    }
-
-    a {
-      text-decoration: none;
-      color: black;
-    }
-
-    .details {
+    .location,
+    .times-ago {
       display: flex;
-
-      gap: 10px;
-
-      margin-top: 8px;
-
-      .location,
-      .times-ago {
-        display: flex;
-        align-items: center;
-        gap: 4px;
-        font-size: 0.7rem;
-        color: ${props => props.theme.TEXT};
-      }
+      align-items: center;
+      gap: 4px;
+      font-size: 0.7rem;
+      color: ${props => props.theme.TEXT};
     }
   }
 `;
