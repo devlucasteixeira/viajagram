@@ -14,6 +14,7 @@ textarea, button{
 button, a {
   cursor: pointer;
   border: none;
+  background-color: inherit;
 }
 
 html,

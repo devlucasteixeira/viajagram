@@ -134,49 +134,47 @@ export const CommentsButton = styled.button`
   color: ${props => props.theme.TEXT};
 `;
 
-
-
 export const FormPublishComment = styled.form`
   display: flex;
   align-items: center;
   justify-content: center;
 
-  gap: 0 6px;
   margin: 16px 0;
 
-  input {
-    height: 30px;
-
+  .react-input-emoji--input {
+    height: 40px;
+    max-width: 300px;
     border: none;
-    border-bottom: 1px solid ${props => props.theme.TEXT};
+    border-bottom: 1px solid transparent;
 
     flex: 1;
 
     padding: 8px;
     outline: none;
 
-    resize: none;
-
-    transition: all 0.4s;
+    transition: border-bottom 0.4s;
     &:focus {
       border-bottom: 1px solid ${props => props.theme.TEXT_BLUE};
     }
   }
+  .react-input-emoji--button {
+    padding: 0 4px;
+  }
+`;
 
-  button.btn-publish {
-    color: #326bab;
+export const PublishButton = styled.button`
+  color: #326bab;
 
-    border-radius: 4px;
-    opacity: 0.7;
-    padding: 4px 8px;
+  border-radius: 4px;
+  opacity: 0.7;
+  padding: 8px;
 
-    border: 1px solid transparent;
+  border: 1px solid transparent;
 
-    transition: border 0.4s;
-    font-weight: bold;
+  transition: border 0.4s;
+  font-weight: bold;
 
-    &:hover {
-      border: 1px solid #326bab;
-    }
+  &:hover {
+    border: 1px solid #326bab;
   }
 `;

@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 
+import InputEmoji from 'react-input-emoji';
+
 import {
   Container,
   CardHeader,
@@ -11,6 +13,7 @@ import {
   LikedButton,
   CommentsButton,
   FormPublishComment,
+  PublishButton,
 } from './styles';
 
 import Spinner from '../Spinner';
@@ -22,8 +25,6 @@ import { ImLocation } from 'react-icons/im';
 import { BsFillClockFill } from 'react-icons/bs';
 import { HiDotsHorizontal } from 'react-icons/hi';
 import Comments from '../Comments';
-
-import InputEmoji from 'react-input-emoji';
 
 const postList = [
   {
@@ -82,14 +83,13 @@ const postList = [
 
 function FeedCard() {
   const [isPhotoLoading, setIsPhotoLoading] = useState(true);
+  const [commentText, setCommentText] = useState('');
 
   useEffect(() => {
     setTimeout(() => {
       setIsPhotoLoading(false);
     }, 1000);
   }, []);
-
-  const [value, setValue] = useState('');
 
   return (
     <>
@@ -148,11 +148,14 @@ function FeedCard() {
               <FormPublishComment>
                 <InputEmoji
                   placeholder="Adicione um comentário..."
-                  value={value}
-                  onChange={setValue}
-                  height={25}
+                  value={commentText}
+                  onChange={setCommentText}
+                  height={40}
+                  borderRadius={0}
+                  borderColor="#ffffff"
+                  cleanOnEnter
                 />
-                <button className="btn-publish">Publicar</button>
+                <PublishButton>Publicar</PublishButton>
               </FormPublishComment>
             </Container>
           );

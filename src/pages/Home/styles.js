@@ -29,6 +29,9 @@ export const MainContainer = styled.main`
 
 export const MainContent = styled.div`
   flex: 1.3;
+
+  width: 60%;
+  max-width: 550px;
   /* background: red; */
 `;
 
