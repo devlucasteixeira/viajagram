@@ -36,7 +36,7 @@ export const CommentAuthor = styled.div`
 `;
 
 export const Comment = styled.p`
-  word-break: break-all;
+  word-break: keep-all;
 
   font-size: 14px;
 

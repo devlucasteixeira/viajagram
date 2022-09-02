@@ -1,0 +1,15 @@
+{
+  "comments": [
+    {
+      "id": 1,
+      "postId": 2549,
+      "user": {
+        "name": "Jorge Nascimento",
+        "city": "São Paulo",
+        "profileImageUrl": "https://avatars.githubusercontent.com/u/62806739?v=4",
+        "login": "nascimento_"
+      },
+      "text": "Olha esse comentario de exemplo para esse post"
+    }
+  ]
+}

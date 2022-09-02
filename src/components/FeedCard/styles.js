@@ -171,6 +171,8 @@ export const PublishButton = styled.button`
 
   border: 1px solid transparent;
 
+  margin-left: 4px;
+
   transition: border 0.4s;
   font-weight: bold;
 

@@ -1,5 +1,7 @@
 import React from 'react';
 
+import commentsList from '../../data/comments.json';
+
 import {
   CommentsContainer,
   CommentContainer,
@@ -7,25 +9,12 @@ import {
   Comment,
 } from './styles';
 
-const commentsList = [
-  {
-    id: 1,
-    postId: 2549,
-    user: {
-      name: 'Jorge Nascimento',
-      city: 'São Paulo',
-      profileImageUrl: 'https://avatars.githubusercontent.com/u/62806739?v=4',
-      login: 'nascimento_',
-    },
-    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque facere sapiente distinctio consequuntur adipisci ipsum non sint delectus Reprehenderit ducimus aliquam consequuntur',
-  },
-];
-
 function Comments() {
+  const { comments } = commentsList;
   return (
     <CommentsContainer>
-      {commentsList.length > 0 &&
-        commentsList.map(commentObj => {
+      {comments.length > 0 &&
+        comments.map(commentObj => {
           const { id, user, text } = commentObj;
 
           return (
