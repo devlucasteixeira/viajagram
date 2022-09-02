@@ -1,10 +1,10 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import ListSuggestions from './ListSuggest';
 import {
   Container,
   ContainerSide,
   ContainerText,
   ContainerSuggest,
-  ListContainer,
   ContainerButtons,
   ProfileText,
   ProfileDescription,
@@ -41,28 +41,6 @@ export default function UserInfo() {
     setUsers(usersSuggest);
   }, []);
 
-  const ListSuggest = useMemo(() => {
-    console.log(users.length);
-    return (
-      <ListContainer>
-        {users.map((user, index) => (
-          <li key={index}>
-            <Container>
-              <ContainerSide>
-                <div className="profile-image">Image</div>
-                <ContainerText>
-                  <ProfileText>{user.name}</ProfileText>
-                  <ProfileDescription>{user.suggest}</ProfileDescription>
-                </ContainerText>
-              </ContainerSide>
-              <ContainerButtons>Seguir</ContainerButtons>
-            </Container>
-          </li>
-        ))}
-      </ListContainer>
-    );
-  }, [users]);
-
   return (
     <>
       <div>
@@ -81,7 +59,7 @@ export default function UserInfo() {
             <SuggestText>Sugestões para você</SuggestText>
             <span>Ver tudo</span>
           </ContainerSuggest>
-          {ListSuggest}
+          {users && <ListSuggestions users={users} />}
         </div>
       </div>
     </>

@@ -1,7 +1,7 @@
 import { Aside, Container, Header, MainContainer, MainContent } from './styles';
-import UserInfoComponent from '../../components/userInfo';
+import UserInfoComponent from './UserInfo';
 
-function Home() {
+const Home = () => {
   return (
     <>
       <Container>
@@ -19,6 +19,6 @@ function Home() {
       </Container>
     </>
   );
-}
+};
 
 export default Home;
