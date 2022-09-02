@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import {
   Container,
   ContainerSide,
@@ -34,7 +34,35 @@ const usersSuggest = [
   },
 ];
 
-export default function userInfo() {
+export default function UserInfo() {
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    setUsers(usersSuggest);
+  }, []);
+
+  const ListSuggest = useMemo(() => {
+    console.log(users.length);
+    return (
+      <ListContainer>
+        {users.map((user, index) => (
+          <li key={index}>
+            <Container>
+              <ContainerSide>
+                <div className="profile-image">Image</div>
+                <ContainerText>
+                  <ProfileText>{user.name}</ProfileText>
+                  <ProfileDescription>{user.suggest}</ProfileDescription>
+                </ContainerText>
+              </ContainerSide>
+              <ContainerButtons>Seguir</ContainerButtons>
+            </Container>
+          </li>
+        ))}
+      </ListContainer>
+    );
+  }, [users]);
+
   return (
     <>
       <div>
@@ -53,24 +81,7 @@ export default function userInfo() {
             <SuggestText>Sugestões para você</SuggestText>
             <span>Ver tudo</span>
           </ContainerSuggest>
-          <ListContainer>
-            {usersSuggest.map(user => {
-              return (
-                <li>
-                  <Container>
-                    <ContainerSide>
-                      <div className="profile-image">Image</div>
-                      <ContainerText>
-                        <ProfileText>{user.name}</ProfileText>
-                        <ProfileDescription>{user.suggest}</ProfileDescription>
-                      </ContainerText>
-                    </ContainerSide>
-                    <ContainerButtons>Seguir</ContainerButtons>
-                  </Container>
-                </li>
-              );
-            })}
-          </ListContainer>
+          {ListSuggest}
         </div>
       </div>
     </>
