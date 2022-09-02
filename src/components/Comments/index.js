@@ -1,6 +1,4 @@
-import React from 'react';
-
-import commentsList from '../../data/comments.json';
+// import commentsList from '../../data/comments.json';
 
 import {
   CommentsContainer,
@@ -9,28 +7,28 @@ import {
   Comment,
 } from './styles';
 
-function Comments() {
-  const { comments } = commentsList;
+function Comments({ commentsList }) {
+  // const { comments } = commentsList;
   return (
     <CommentsContainer>
-      {comments.length > 0 &&
-        comments.map(commentObj => {
-          const { id, user, text } = commentObj;
-
-          return (
-            <CommentContainer key={id}>
-              <CommentAuthor>
-                <a href="/" alt=" profile">
-                  <img src={user.profileImageUrl} alt="user profile" />
-                </a>
-                <a href="/" alt="profile">
-                  <strong>{user.login}</strong>
-                </a>
-              </CommentAuthor>
-              <Comment>{text}</Comment>
-            </CommentContainer>
-          );
-        })}
+      {commentsList
+        ? commentsList.map(comment => {
+            const { id, user, text } = comment;
+            return (
+              <CommentContainer key={id}>
+                <CommentAuthor>
+                  <a href="/" alt=" profile">
+                    <img src={user.profileImageUrl} alt="user profile" />
+                  </a>
+                  <a href="/" alt="profile">
+                    <strong>{user.login}</strong>
+                  </a>
+                </CommentAuthor>
+                <Comment>{text}</Comment>
+              </CommentContainer>
+            );
+          })
+        : null}
     </CommentsContainer>
   );
 }

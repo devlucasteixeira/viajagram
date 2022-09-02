@@ -2,8 +2,6 @@ import { useEffect, useState } from 'react';
 
 import InputEmoji from 'react-input-emoji';
 
-import postList from '../../data/posts.json';
-
 import {
   Container,
   CardHeader,
@@ -28,7 +26,7 @@ import { BsFillClockFill } from 'react-icons/bs';
 import { HiDotsHorizontal } from 'react-icons/hi';
 import Comments from '../Comments';
 
-function FeedCard() {
+function FeedCard({ post, commentsList }) {
   const [isPhotoLoading, setIsPhotoLoading] = useState(true);
   const [commentText, setCommentText] = useState('');
 
@@ -38,78 +36,72 @@ function FeedCard() {
     }, 1000);
   }, []);
 
-  const { posts } = postList;
+  const { id, user, card, likes, comments, createAt } = post;
 
   return (
-    <>
-      {posts.length > 0 &&
-        posts.map(post => {
-          const { id, user, card, likes, comments, createAt } = post;
-          return (
-            <Container key={id}>
-              <CardHeader>
-                <CardAuthor>
-                  <img src={user.profileImageUrl} alt="user profile" />
-                  <div>
-                    <a href="/">
-                      <strong>{user.name}</strong>
-                    </a>
+    <Container key={id}>
+      <CardHeader>
+        <CardAuthor>
+          <img src={user.profileImageUrl} alt="user profile" />
+          <div>
+            <a href="/">
+              <strong>{user.name}</strong>
+            </a>
 
-                    <div className="details">
-                      <div className="location">
-                        <ImLocation color="#E77F76" /> {/* icon location */}
-                        <span>{user.city}</span>
-                      </div>
+            <div className="details">
+              <div className="location">
+                <ImLocation color="#E77F76" />
+                <span>{user.city}</span>
+              </div>
 
-                      <div className="times-ago">
-                        <BsFillClockFill color="#E77F76" /> {/* icon clock */}
-                        <span>{createAt}</span>
-                      </div>
-                    </div>
-                  </div>
-                </CardAuthor>
-                <CardButtonMenu>
-                  <HiDotsHorizontal />
-                </CardButtonMenu>
-              </CardHeader>
+              <div className="times-ago">
+                <BsFillClockFill color="#E77F76" />
+                <span>{createAt}</span>
+              </div>
+            </div>
+          </div>
+        </CardAuthor>
+        <CardButtonMenu>
+          <HiDotsHorizontal />
+        </CardButtonMenu>
+      </CardHeader>
 
-              <CardTitle>{card.title}</CardTitle>
+      <CardTitle>{card.title}</CardTitle>
 
-              <CardPhoto>
-                {isPhotoLoading ? (
-                  <Spinner size={20} />
-                ) : (
-                  <img src={card.imageUrl} alt="card alt" />
-                )}
-              </CardPhoto>
+      <CardPhoto>
+        {isPhotoLoading ? (
+          <Spinner size={20} />
+        ) : (
+          <img src={card.imageUrl} alt="card alt" />
+        )}
+      </CardPhoto>
 
-              <CardActions>
-                <LikedButton>
-                  <BsFillHeartFill size={18} color="#E77F76" />
-                  <span>{likes}</span>
-                </LikedButton>
-                <CommentsButton>
-                  <FaComment size={18} /> {/* icon comments */}
-                  <span>{comments}</span>
-                </CommentsButton>
-              </CardActions>
-              <Comments />
-              <FormPublishComment>
-                <InputEmoji
-                  placeholder="Adicione um comentário..."
-                  value={commentText}
-                  onChange={setCommentText}
-                  height={40}
-                  borderRadius={0}
-                  borderColor="#ffffff"
-                  cleanOnEnter
-                />
-                <PublishButton>Publicar</PublishButton>
-              </FormPublishComment>
-            </Container>
-          );
-        })}
-    </>
+      <CardActions>
+        <LikedButton>
+          <BsFillHeartFill size={18} color="#E77F76" />
+          <span>{likes}</span>
+        </LikedButton>
+        <CommentsButton>
+          <FaComment size={18} />
+          <span>{comments}</span>
+        </CommentsButton>
+      </CardActions>
+
+      <Comments commentsList={commentsList} />
+
+      <FormPublishComment>
+        <InputEmoji
+          placeholder="Adicione um comentário..."
+          value={commentText}
+          onChange={setCommentText}
+          height={40}
+          borderRadius={0}
+          borderColor="#ffffff"
+          cleanOnEnter
+        />
+        <PublishButton>Publicar</PublishButton>
+      </FormPublishComment>
+    </Container>
   );
 }
 
