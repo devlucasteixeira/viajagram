@@ -87,7 +87,7 @@ function FeedCard({ post, commentsList }) {
         </CommentsButton>
       </CardActions>
 
-      <Comments commentsList={commentsList} />
+      <Comments postId={id} commentsList={commentsList} />
 
       <FormPublishComment>
         <InputEmoji

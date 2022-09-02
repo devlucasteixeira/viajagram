@@ -1,5 +1,3 @@
-// import commentsList from '../../data/comments.json';
-
 import {
   CommentsContainer,
   CommentContainer,
@@ -7,12 +5,17 @@ import {
   Comment,
 } from './styles';
 
-function Comments({ commentsList }) {
-  // const { comments } = commentsList;
+function Comments({ postId, commentsList }) {
+  const commentsForThisPost = commentsList.filter(
+    comment => comment.postId === postId,
+  );
+
+  console.log(commentsForThisPost);
+
   return (
     <CommentsContainer>
-      {commentsList
-        ? commentsList.map(comment => {
+      {commentsForThisPost
+        ? commentsForThisPost.map(comment => {
             const { id, user, text } = comment;
             return (
               <CommentContainer key={id}>
