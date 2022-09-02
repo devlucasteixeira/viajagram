@@ -62,22 +62,6 @@ export const CardAuthor = styled.div`
   }
 `;
 
-export const CardButtonMenu = styled.button`
-  font-weight: bold;
-  border: none;
-  font-size: 18px;
-
-  svg {
-    color: #a7a7a4;
-
-    transition: all 0.4s;
-
-    &:hover {
-      color: #868684;
-    }
-  }
-`;
-
 export const CardTitle = styled.p`
   margin: 8px 0;
   font-size: 1.3rem;

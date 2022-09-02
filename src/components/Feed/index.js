@@ -1,4 +1,3 @@
-import React from 'react';
 import FeedCard from '../FeedCard';
 
 import postList from '../../data/posts.json';
@@ -6,11 +5,10 @@ import commentsList from '../../data/comments.json';
 
 import { Container } from './styles';
 
-function Feed() {
-  const { posts } = postList;
-  // const posts = [];
-  const { comments } = commentsList;
+const { posts } = postList;
+const { comments } = commentsList;
 
+function Feed() {
   return (
     <Container>
       {posts.length > 0 ? (

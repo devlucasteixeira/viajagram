@@ -6,7 +6,6 @@ import {
   Container,
   CardHeader,
   CardAuthor,
-  CardButtonMenu,
   CardTitle,
   CardPhoto,
   CardActions,
@@ -23,8 +22,8 @@ import { FaComment } from 'react-icons/fa';
 import { ImLocation } from 'react-icons/im';
 
 import { BsFillClockFill } from 'react-icons/bs';
-import { HiDotsHorizontal } from 'react-icons/hi';
 import Comments from '../Comments';
+import ButtonDotsHorizontalMenu from '../ButtonDotsHorizontalMenu';
 
 function FeedCard({ post, commentsList }) {
   const [isPhotoLoading, setIsPhotoLoading] = useState(true);
@@ -56,14 +55,12 @@ function FeedCard({ post, commentsList }) {
 
               <div className="times-ago">
                 <BsFillClockFill color="#E77F76" />
-                <span>{createAt}</span>
+                <span>{createAt}</span> atrás
               </div>
             </div>
           </div>
         </CardAuthor>
-        <CardButtonMenu>
-          <HiDotsHorizontal />
-        </CardButtonMenu>
+        <ButtonDotsHorizontalMenu />
       </CardHeader>
 
       <CardTitle>{card.title}</CardTitle>
@@ -79,11 +76,11 @@ function FeedCard({ post, commentsList }) {
       <CardActions>
         <LikedButton>
           <BsFillHeartFill size={18} color="#E77F76" />
-          <span>{likes}</span>
+          <span>{likes} likes</span>
         </LikedButton>
         <CommentsButton>
           <FaComment size={18} />
-          <span>{comments}</span>
+          <span>{comments} comentários</span>
         </CommentsButton>
       </CardActions>
 

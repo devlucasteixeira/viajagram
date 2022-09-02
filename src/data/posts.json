@@ -12,9 +12,9 @@
         "title": "Este é um post teste de criação e estilização.",
         "imageUrl": "https://images.unsplash.com/photo-1503220317375-aaad61436b1b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
       },
-      "likes": "14.5k Likes",
-      "comments": "1.2k comments",
-      "createAt": "13 hrs atrás"
+      "likes": "14.5k ",
+      "comments": "2k",
+      "createAt": "13 hrs "
     },
     {
       "id": 2,
@@ -28,9 +28,9 @@
         "title": "here we go, other post for development feed.",
         "imageUrl": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
       },
-      "likes": "30.5k Likes",
-      "comments": "5.2k comments",
-      "createAt": "10 hrs atrás"
+      "likes": "30.5000",
+      "comments": "5.2k",
+      "createAt": "10 hrs"
     },
     {
       "id": 3,
@@ -44,9 +44,9 @@
         "title": "Diretamente de Natal, imagem de drone, uma maravilha de lugar.",
         "imageUrl": "https://images.unsplash.com/photo-1530789253388-582c481c54b0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
       },
-      "likes": "50.5k Likes",
-      "comments": "30.2k comments",
-      "createAt": "5 hrs atrás"
+      "likes": "50.5k",
+      "comments": "30.2k",
+      "createAt": "5 hrs"
     }
   ]
 }
