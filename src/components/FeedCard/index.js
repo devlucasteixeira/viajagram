@@ -30,7 +30,9 @@ function FeedCard({ post, commentsList }) {
   const [openModalComments, setOpenModalComments] = useState(false);
   const [commentText, setCommentText] = useState('');
 
-  const { id, user, card, likes, comments, createAt } = post;
+  const [comments, setComments] = useState(commentsList);
+
+  const { id, user, card, likes, commentsCount, createAt } = post;
 
   useEffect(() => {
     setTimeout(() => {
@@ -44,6 +46,28 @@ function FeedCard({ post, commentsList }) {
       setOpenModalComments(prevState => !prevState);
     }
   }, []);
+
+  function handleAddComment(id) {
+    const newComment = {
+      id: Math.floor(Math.random() * 100),
+      postId: id,
+      user: {
+        name: '{user}',
+        city: '{city}',
+        profileImageUrl:
+          'https://cdn-icons-png.flaticon.com/128/1814/1814291.png',
+        login: '{login}',
+      },
+      text: commentText,
+    };
+
+    setComments([...comments, newComment]);
+    setCommentText('');
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+  }
 
   if (isCardLoading) {
     return (
@@ -65,7 +89,7 @@ function FeedCard({ post, commentsList }) {
           onToggleModal={toggleModalComments}
           card={card}
           postId={id}
-          commentsList={commentsList}
+          commentsList={comments}
         />
       )}
       <CardHeader>
@@ -105,11 +129,11 @@ function FeedCard({ post, commentsList }) {
         </LikedButton>
         <CommentsButton onClick={toggleModalComments}>
           <FaComment size={18} />
-          <span>{comments} comentários</span>
+          <span>{commentsCount} comentários</span>
         </CommentsButton>
       </CardActions>
 
-      <FormPublishComment>
+      <FormPublishComment onSubmit={handleSubmit}>
         <InputEmoji
           placeholder="Adicione um comentário..."
           value={commentText}
@@ -117,9 +141,13 @@ function FeedCard({ post, commentsList }) {
           height={40}
           borderRadius={0}
           borderColor="#ffffff"
-          cleanOnEnter
         />
-        <PublishButton>Publicar</PublishButton>
+        <PublishButton
+          onClick={() => {
+            handleAddComment(id);
+          }}>
+          Publicar
+        </PublishButton>
       </FormPublishComment>
     </Container>
   );
