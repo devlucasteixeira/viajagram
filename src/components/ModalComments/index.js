@@ -8,10 +8,13 @@ import {
   PostMidia,
 } from './styles';
 
+import { FiXCircle } from 'react-icons/fi';
+
 function ModalComments({ onToggleModal, postId, card, commentsList }) {
+  console.log('Modal Comments');
   const { imageUrl } = card;
   return (
-    <Overlay>
+    <Overlay onClick={onToggleModal}>
       <ModalWrapper>
         <PostMidia>
           <img src={imageUrl} alt="card content" />
@@ -22,7 +25,9 @@ function ModalComments({ onToggleModal, postId, card, commentsList }) {
             <Comment postId={postId} commentsList={commentsList} />
           </CommentList>
         </CommentsContainer>
-        <CloseButton onClick={onToggleModal}> X </CloseButton>
+        <CloseButton onClick={onToggleModal}>
+          <FiXCircle size={25} />
+        </CloseButton>
       </ModalWrapper>
     </Overlay>
   );

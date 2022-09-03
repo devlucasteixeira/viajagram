@@ -116,6 +116,11 @@ export const CommentsButton = styled.button`
   font-weight: bold;
 
   color: ${props => props.theme.TEXT};
+
+  span,
+  svg {
+    pointer-events: none;
+  }
 `;
 
 export const FormPublishComment = styled.form`

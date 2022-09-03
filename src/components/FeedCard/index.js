@@ -27,19 +27,22 @@ import ModalComments from '../ModalComments';
 
 function FeedCard({ post, commentsList }) {
   const [isCardLoading, setIsCardLoading] = useState(true);
-  const [commentText, setCommentText] = useState('');
   const [openModalComments, setOpenModalComments] = useState(false);
+  const [commentText, setCommentText] = useState('');
 
   const { id, user, card, likes, comments, createAt } = post;
 
   useEffect(() => {
     setTimeout(() => {
       setIsCardLoading(false);
-    }, 2000);
+    }, 1500);
   }, []);
 
-  const toggleModalComments = useCallback(() => {
-    setOpenModalComments(prevState => !prevState);
+  const toggleModalComments = useCallback(event => {
+    event.stopPropagation();
+    if (event.target === event.currentTarget) {
+      setOpenModalComments(prevState => !prevState);
+    }
   }, []);
 
   if (isCardLoading) {

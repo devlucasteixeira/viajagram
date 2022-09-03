@@ -4,8 +4,10 @@ import postList from '../../data/posts.json';
 import commentsList from '../../data/comments.json';
 
 import { Container } from './styles';
+import Message from '../Message';
 
 const { posts } = postList;
+// const posts = [];
 const { comments } = commentsList;
 
 function Feed() {
@@ -16,7 +18,7 @@ function Feed() {
           <FeedCard key={post.id} post={post} commentsList={comments} />
         ))
       ) : (
-        <h1>No post available</h1>
+        <Message>Nenhum post disponível</Message>
       )}
     </Container>
   );

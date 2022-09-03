@@ -24,14 +24,14 @@
     },
     {
       "id": 3,
-      "postId": 3,
+      "postId": 2,
       "user": {
         "name": "John Doe",
         "city": "New York",
         "profileImageUrl": "https://cdn.icon-icons.com/icons2/11/PNG/128/customer_person_people_man_user_client_1629.png",
         "login": "john"
       },
-      "text": "Olha esse comentário de exemplo para esse post 3"
+      "text": "Olha esse outro comentário de exemplo para esse post 2"
     }
   ]
 }

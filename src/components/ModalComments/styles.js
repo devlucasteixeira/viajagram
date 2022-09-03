@@ -1,7 +1,7 @@
 import styled, { keyframes } from 'styled-components';
 
 const fadeUp = keyframes`
-  from { opacity: 0; transform: scale(1.05); }
+  from { opacity: .5; transform: scale(1.05); }
   to { opacity: 1; transform: scale(1);  }
 `;
 
@@ -49,6 +49,16 @@ export const CloseButton = styled.button`
   position: absolute;
   right: -30px;
   top: -30px;
+
+  svg {
+    opacity: 0.5;
+
+    transition: opacity 300ms;
+    pointer-events: none;
+    &:hover {
+      opacity: 0.6;
+    }
+  }
 `;
 
 export const PostMidia = styled.div`
@@ -72,4 +82,6 @@ export const CommentsContainer = styled.div`
 export const CommentList = styled.div`
   display: flex;
   gap: 8px;
+
+  overflow-y: auto;
 `;
