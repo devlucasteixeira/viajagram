@@ -1,11 +1,12 @@
-import React from 'react';
 import { HiDotsHorizontal } from 'react-icons/hi';
+
+import { Container } from './styles';
 
 function ButtonDotsHorizontalMenu() {
   return (
-    <ButtonDotsHorizontalMenu>
+    <Container>
       <HiDotsHorizontal />
-    </ButtonDotsHorizontalMenu>
+    </Container>
   );
 }
 

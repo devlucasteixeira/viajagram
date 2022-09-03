@@ -38,6 +38,7 @@ export const StyledSpinner = styled.div`
   color: ${({ theme }) => theme.TEXT_BLUE};
   width: 1em;
   height: 1em;
+
   font-size: ${({ size }) => `${size}px`};
   border-radius: 50%;
   -webkit-transform: translateZ(0);

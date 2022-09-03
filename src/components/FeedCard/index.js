@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 import InputEmoji from 'react-input-emoji';
 
@@ -22,23 +22,49 @@ import { FaComment } from 'react-icons/fa';
 import { ImLocation } from 'react-icons/im';
 
 import { BsFillClockFill } from 'react-icons/bs';
-import Comments from '../Comments';
 import ButtonDotsHorizontalMenu from '../ButtonDotsHorizontalMenu';
+import ModalComments from '../ModalComments';
 
 function FeedCard({ post, commentsList }) {
-  const [isPhotoLoading, setIsPhotoLoading] = useState(true);
+  const [isCardLoading, setIsCardLoading] = useState(true);
   const [commentText, setCommentText] = useState('');
-
-  useEffect(() => {
-    setTimeout(() => {
-      setIsPhotoLoading(false);
-    }, 1000);
-  }, []);
+  const [openModalComments, setOpenModalComments] = useState(false);
 
   const { id, user, card, likes, comments, createAt } = post;
 
+  useEffect(() => {
+    setTimeout(() => {
+      setIsCardLoading(false);
+    }, 2000);
+  }, []);
+
+  const toggleModalComments = useCallback(() => {
+    setOpenModalComments(prevState => !prevState);
+  }, []);
+
+  if (isCardLoading) {
+    return (
+      <Container
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}>
+        <Spinner />;
+      </Container>
+    );
+  }
+
   return (
     <Container key={id}>
+      {openModalComments && (
+        <ModalComments
+          onToggleModal={toggleModalComments}
+          card={card}
+          postId={id}
+          commentsList={commentsList}
+        />
+      )}
       <CardHeader>
         <CardAuthor>
           <img src={user.profileImageUrl} alt="user profile" />
@@ -66,11 +92,7 @@ function FeedCard({ post, commentsList }) {
       <CardTitle>{card.title}</CardTitle>
 
       <CardPhoto>
-        {isPhotoLoading ? (
-          <Spinner size={20} />
-        ) : (
-          <img src={card.imageUrl} alt="card alt" />
-        )}
+        <img src={card.imageUrl} alt="card alt" />
       </CardPhoto>
 
       <CardActions>
@@ -78,13 +100,11 @@ function FeedCard({ post, commentsList }) {
           <BsFillHeartFill size={18} color="#E77F76" />
           <span>{likes} likes</span>
         </LikedButton>
-        <CommentsButton>
+        <CommentsButton onClick={toggleModalComments}>
           <FaComment size={18} />
           <span>{comments} comentários</span>
         </CommentsButton>
       </CardActions>
-
-      <Comments postId={id} commentsList={commentsList} />
 
       <FormPublishComment>
         <InputEmoji

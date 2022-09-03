@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const CardButtonMenu = styled.button`
+export const Container = styled.button`
   font-weight: bold;
   border: none;
   font-size: 18px;

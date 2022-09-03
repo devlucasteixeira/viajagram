@@ -16,7 +16,7 @@ function Feed() {
           <FeedCard key={post.id} post={post} commentsList={comments} />
         ))
       ) : (
-        <h1>No post for feed</h1>
+        <h1>No post available</h1>
       )}
     </Container>
   );

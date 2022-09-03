@@ -10,8 +10,6 @@ function Comments({ postId, commentsList }) {
     comment => comment.postId === postId,
   );
 
-  console.log(commentsForThisPost);
-
   return (
     <CommentsContainer>
       {commentsForThisPost
