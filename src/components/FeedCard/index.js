@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 
 import InputEmoji from 'react-input-emoji';
 
@@ -29,16 +29,24 @@ function FeedCard({ post, commentsList }) {
   const [isCardLoading, setIsCardLoading] = useState(true);
   const [openModalComments, setOpenModalComments] = useState(false);
   const [commentText, setCommentText] = useState('');
-
   const [comments, setComments] = useState(commentsList);
 
-  const { id, user, card, likes, commentsCount, createAt } = post;
+  const { id, user, card, likesCount, commentsCount, createAt } = post;
 
   useEffect(() => {
     setTimeout(() => {
       setIsCardLoading(false);
     }, 1500);
   }, []);
+
+  function formatCount(number) {
+    return `${number / 1000}k`;
+  }
+
+  const isValidInputComment = useMemo(
+    () => commentText.trim().length > 0,
+    [commentText],
+  );
 
   const toggleModalComments = useCallback(event => {
     event.stopPropagation();
@@ -65,10 +73,6 @@ function FeedCard({ post, commentsList }) {
     setCommentText('');
   }
 
-  function handleSubmit(e) {
-    e.preventDefault();
-  }
-
   if (isCardLoading) {
     return (
       <Container
@@ -87,6 +91,7 @@ function FeedCard({ post, commentsList }) {
       {openModalComments && (
         <ModalComments
           onToggleModal={toggleModalComments}
+          setOpenModalComments={setOpenModalComments}
           card={card}
           postId={id}
           commentsList={comments}
@@ -125,15 +130,15 @@ function FeedCard({ post, commentsList }) {
       <CardActions>
         <LikedButton>
           <BsFillHeartFill size={18} color="#E77F76" />
-          <span>{likes} likes</span>
+          <span>{formatCount(likesCount)} likes</span>
         </LikedButton>
         <CommentsButton onClick={toggleModalComments}>
           <FaComment size={18} />
-          <span>{commentsCount} comentários</span>
+          <span>{formatCount(commentsCount)} comentários</span>
         </CommentsButton>
       </CardActions>
 
-      <FormPublishComment onSubmit={handleSubmit}>
+      <FormPublishComment>
         <InputEmoji
           placeholder="Adicione um comentário..."
           value={commentText}
@@ -143,6 +148,8 @@ function FeedCard({ post, commentsList }) {
           borderColor="#ffffff"
         />
         <PublishButton
+          type="submit"
+          disabled={!isValidInputComment}
           onClick={() => {
             handleAddComment(id);
           }}>

@@ -168,4 +168,9 @@ export const PublishButton = styled.button`
   &:hover {
     border: 1px solid #326bab;
   }
+
+  &:disabled {
+    color: #acadad;
+    border: 1px solid #acadad;
+  }
 `;
