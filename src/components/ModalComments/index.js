@@ -6,11 +6,13 @@ import {
   ModalWrapper,
   Overlay,
   PostMidia,
+  ContentWrapper,
 } from './styles';
 
 import { FiXCircle } from 'react-icons/fi';
 import { useEffect } from 'react';
 import { useCallback } from 'react';
+import FormPublishComment from '../FormPublishComment';
 
 function ModalComments({
   onToggleModal,
@@ -18,6 +20,7 @@ function ModalComments({
   postId,
   card,
   commentsList,
+  setComments,
 }) {
   const handleKeyEsc = useCallback(
     event => {
@@ -47,7 +50,13 @@ function ModalComments({
           <CommentList>
             <Comment postId={postId} commentsList={commentsList} />
           </CommentList>
+          <FormPublishComment
+            commentsList={commentsList}
+            setComments={setComments}
+            postId={postId}
+          />
         </CommentsContainer>
+
         <CloseButton onClick={onToggleModal}>
           <FiXCircle size={25} />
         </CloseButton>

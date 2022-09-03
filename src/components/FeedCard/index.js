@@ -1,6 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
-
-import InputEmoji from 'react-input-emoji';
+import { useCallback, useEffect, useState } from 'react';
 
 import {
   Container,
@@ -11,8 +9,6 @@ import {
   CardActions,
   LikedButton,
   CommentsButton,
-  FormPublishComment,
-  PublishButton,
 } from './styles';
 
 import Spinner from '../Spinner';
@@ -24,11 +20,11 @@ import { ImLocation } from 'react-icons/im';
 import { BsFillClockFill } from 'react-icons/bs';
 import ButtonDotsHorizontalMenu from '../ButtonDotsHorizontalMenu';
 import ModalComments from '../ModalComments';
+import FormPublishComment from '../FormPublishComment';
 
 function FeedCard({ post, commentsList }) {
   const [isCardLoading, setIsCardLoading] = useState(true);
   const [openModalComments, setOpenModalComments] = useState(false);
-  const [commentText, setCommentText] = useState('');
   const [comments, setComments] = useState(commentsList);
 
   const { id, user, card, likesCount, commentsCount, createAt } = post;
@@ -43,35 +39,12 @@ function FeedCard({ post, commentsList }) {
     return `${number / 1000}k`;
   }
 
-  const isValidInputComment = useMemo(
-    () => commentText.trim().length > 0,
-    [commentText],
-  );
-
   const toggleModalComments = useCallback(event => {
     event.stopPropagation();
     if (event.target === event.currentTarget) {
       setOpenModalComments(prevState => !prevState);
     }
   }, []);
-
-  function handleAddComment(id) {
-    const newComment = {
-      id: Math.floor(Math.random() * 100),
-      postId: id,
-      user: {
-        name: '{user}',
-        city: '{city}',
-        profileImageUrl:
-          'https://cdn-icons-png.flaticon.com/128/1814/1814291.png',
-        login: '{login}',
-      },
-      text: commentText,
-    };
-
-    setComments([...comments, newComment]);
-    setCommentText('');
-  }
 
   if (isCardLoading) {
     return (
@@ -95,6 +68,7 @@ function FeedCard({ post, commentsList }) {
           card={card}
           postId={id}
           commentsList={comments}
+          setComments={setComments}
         />
       )}
       <CardHeader>
@@ -138,24 +112,11 @@ function FeedCard({ post, commentsList }) {
         </CommentsButton>
       </CardActions>
 
-      <FormPublishComment>
-        <InputEmoji
-          placeholder="Adicione um comentário..."
-          value={commentText}
-          onChange={setCommentText}
-          height={40}
-          borderRadius={0}
-          borderColor="#ffffff"
-        />
-        <PublishButton
-          type="submit"
-          disabled={!isValidInputComment}
-          onClick={() => {
-            handleAddComment(id);
-          }}>
-          Publicar
-        </PublishButton>
-      </FormPublishComment>
+      <FormPublishComment
+        setComments={setComments}
+        commentsList={comments}
+        postId={id}
+      />
     </Container>
   );
 }

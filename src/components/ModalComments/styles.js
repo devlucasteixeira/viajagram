@@ -77,6 +77,10 @@ export const PostMidia = styled.div`
 
 export const CommentsContainer = styled.div`
   padding: 8px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
 
 export const CommentList = styled.div`
