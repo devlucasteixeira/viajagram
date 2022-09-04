@@ -1,11 +1,16 @@
 import React, { useMemo, useState } from 'react';
 
 import InputEmoji from 'react-input-emoji';
-
 import { Container, PublishButton } from './styles';
 
 function FormPublishComment({ setComments, commentsList, postId }) {
   const [commentText, setCommentText] = useState('');
+
+  function handleKeyEnter(event) {
+    if (event.key === 'Enter') {
+      handleAddComment(postId);
+    }
+  }
 
   function handleAddComment(id) {
     const newComment = {
@@ -39,6 +44,7 @@ function FormPublishComment({ setComments, commentsList, postId }) {
         height={40}
         borderRadius={0}
         borderColor="#ffffff"
+        onKeyDown={handleKeyEnter}
       />
       <PublishButton
         type="submit"

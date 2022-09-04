@@ -1,5 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 
+import { formatCount } from '../../helpers/formatCount';
+
 import {
   Container,
   CardHeader,
@@ -34,10 +36,6 @@ function FeedCard({ post, commentsList }) {
       setIsCardLoading(false);
     }, 1500);
   }, []);
-
-  function formatCount(number) {
-    return `${number / 1000}k`;
-  }
 
   const toggleModalComments = useCallback(event => {
     event.stopPropagation();

@@ -70,7 +70,7 @@ export const CardTitle = styled.p`
 `;
 
 export const CardPhoto = styled.div`
-  min-height: 300px;
+  min-height: 200px;
   max-height: 380px;
 
   border-radius: 16px;
@@ -95,6 +95,10 @@ export const CardActions = styled.section`
   align-items: center;
 
   padding: 8px;
+
+  button {
+    font-size: 12px;
+  }
 `;
 
 export const LikedButton = styled.button`

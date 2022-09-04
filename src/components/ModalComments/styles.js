@@ -35,32 +35,6 @@ export const ModalWrapper = styled.div`
   animation: ${fadeUp} 300ms ease-out;
 `;
 
-export const CloseButton = styled.button`
-  width: 25px;
-  height: 25px;
-
-  border-radius: 50%;
-
-  border: none;
-  background-color: rgba(0, 0, 0, 0.6);
-
-  color: white;
-
-  position: absolute;
-  right: -30px;
-  top: -30px;
-
-  svg {
-    opacity: 0.5;
-
-    transition: opacity 300ms;
-    pointer-events: none;
-    &:hover {
-      opacity: 0.6;
-    }
-  }
-`;
-
 export const PostMidia = styled.div`
   flex: 0.5;
   min-width: 350px;
@@ -76,6 +50,7 @@ export const PostMidia = styled.div`
 `;
 
 export const CommentsContainer = styled.div`
+  width: 100%;
   padding: 8px;
 
   display: flex;
@@ -88,4 +63,39 @@ export const CommentList = styled.div`
   gap: 8px;
 
   overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+`;
+
+export const CloseButton = styled.button`
+  width: 25px;
+  height: 25px;
+
+  border-radius: 50%;
+
+  border: none;
+  background-color: rgba(0, 0, 0, 0.6);
+
+  color: white;
+
+  position: absolute;
+  right: -30px;
+  top: -30px;
+
+  &:hover svg {
+    opacity: 0.8;
+  }
+
+  svg {
+    opacity: 0.5;
+
+    pointer-events: none;
+    transition: opacity 300ms;
+  }
 `;
