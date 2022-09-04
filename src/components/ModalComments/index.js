@@ -6,13 +6,13 @@ import {
   ModalWrapper,
   Overlay,
   PostMidia,
-  ContentWrapper,
 } from './styles';
 
 import { FiXCircle } from 'react-icons/fi';
 import { useEffect } from 'react';
 import { useCallback } from 'react';
 import FormPublishComment from '../FormPublishComment';
+import ProfileHeader from '../ProfileHeader';
 
 function ModalComments({
   onToggleModal,
@@ -21,6 +21,7 @@ function ModalComments({
   card,
   commentsList,
   setComments,
+  user,
 }) {
   const handleKeyEsc = useCallback(
     event => {
@@ -47,6 +48,7 @@ function ModalComments({
         </PostMidia>
 
         <CommentsContainer>
+          <ProfileHeader user={user} />
           <CommentList>
             <Comment postId={postId} commentsList={commentsList} />
           </CommentList>

@@ -51,6 +51,7 @@ export const PostMidia = styled.div`
 
 export const CommentsContainer = styled.div`
   width: 100%;
+  height: 100%;
   padding: 8px;
 
   display: flex;
@@ -61,6 +62,8 @@ export const CommentsContainer = styled.div`
 export const CommentList = styled.div`
   display: flex;
   gap: 8px;
+
+  flex: 1;
 
   overflow-y: auto;
 

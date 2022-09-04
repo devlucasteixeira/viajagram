@@ -5,7 +5,6 @@ import { formatCount } from '../../helpers/formatCount';
 import {
   Container,
   CardHeader,
-  CardAuthor,
   CardTitle,
   CardPhoto,
   CardActions,
@@ -17,12 +16,10 @@ import Spinner from '../Spinner';
 
 import { BsFillHeartFill } from 'react-icons/bs';
 import { FaComment } from 'react-icons/fa';
-import { ImLocation } from 'react-icons/im';
 
-import { BsFillClockFill } from 'react-icons/bs';
-import ButtonDotsHorizontalMenu from '../ButtonDotsHorizontalMenu';
 import ModalComments from '../ModalComments';
 import FormPublishComment from '../FormPublishComment';
+import ProfileHeader from '../ProfileHeader';
 
 function FeedCard({ post, commentsList }) {
   const [isCardLoading, setIsCardLoading] = useState(true);
@@ -67,30 +64,11 @@ function FeedCard({ post, commentsList }) {
           postId={id}
           commentsList={comments}
           setComments={setComments}
+          user={user}
         />
       )}
       <CardHeader>
-        <CardAuthor>
-          <img src={user.profileImageUrl} alt="user profile" />
-          <div>
-            <a href="/">
-              <strong>{user.name}</strong>
-            </a>
-
-            <div className="details">
-              <div className="location">
-                <ImLocation color="#E77F76" />
-                <span>{user.city}</span>
-              </div>
-
-              <div className="times-ago">
-                <BsFillClockFill color="#E77F76" />
-                <span>{createAt}</span> atrás
-              </div>
-            </div>
-          </div>
-        </CardAuthor>
-        <ButtonDotsHorizontalMenu />
+        <ProfileHeader user={user} createAt={createAt} />
       </CardHeader>
 
       <CardTitle>{card.title}</CardTitle>
