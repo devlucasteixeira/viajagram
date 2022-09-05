@@ -19,7 +19,7 @@ export const Header = styled.header`
 `;
 
 export const MainContainer = styled.main`
-  height: 100vh;
+  /* height: 100vh; */
   width: 70%;
   display: flex;
   justify-content: center;
@@ -28,13 +28,14 @@ export const MainContainer = styled.main`
 `;
 
 export const MainContent = styled.div`
-  display: flex;
   flex: 1.3;
-  background: red;
+
+  width: 60%;
+  max-width: 550px;
+  /* background: red; */
 `;
 
 export const Aside = styled.div`
-  display: flex;
   flex: 1;
   background: green;
 `;
