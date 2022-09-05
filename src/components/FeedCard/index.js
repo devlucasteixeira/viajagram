@@ -1,12 +1,11 @@
 import { useCallback, useEffect, useState } from 'react';
 
-import { formatCount } from '../../helpers/formatCount';
+import { formatTotalCommentsAndLikes } from '../../helpers/formatTotalCommentsAndLikes';
 
 import {
   Container,
   CardHeader,
   CardTitle,
-  CardPhoto,
   CardActions,
   LikedButton,
   CommentsButton,
@@ -20,6 +19,7 @@ import { FaComment } from 'react-icons/fa';
 import ModalComments from '../ModalComments';
 import FormPublishComment from '../FormPublishComment';
 import ProfileHeader from '../ProfileHeader';
+import CardPhotos from '../CardPhotos';
 
 function FeedCard({ post, commentsList }) {
   const [isCardLoading, setIsCardLoading] = useState(true);
@@ -73,18 +73,16 @@ function FeedCard({ post, commentsList }) {
 
       <CardTitle>{card.title}</CardTitle>
 
-      <CardPhoto>
-        <img src={card.imageUrl} alt="card alt" />
-      </CardPhoto>
+      <CardPhotos imageUrl={card.imageUrl} />
 
       <CardActions>
         <LikedButton>
           <BsFillHeartFill size={18} color="#E77F76" />
-          <span>{formatCount(likesCount)} likes</span>
+          <span>{formatTotalCommentsAndLikes(likesCount)} likes</span>
         </LikedButton>
         <CommentsButton onClick={toggleModalComments}>
           <FaComment size={18} />
-          <span>{formatCount(commentsCount)} comentários</span>
+          <span>{formatTotalCommentsAndLikes(commentsCount)} comentários</span>
         </CommentsButton>
       </CardActions>
 
