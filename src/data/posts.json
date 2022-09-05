@@ -1,0 +1,52 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "user": {
+        "name": "Jorge Nascimento",
+        "city": "São Paulo",
+        "profileImageUrl": "https://avatars.githubusercontent.com/u/62806739?v=4",
+        "login": "nascimento_"
+      },
+      "card": {
+        "title": "Este é um post teste de criação e estilização.",
+        "imageUrl": "https://images.unsplash.com/photo-1503220317375-aaad61436b1b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+      },
+      "likesCount": 14000,
+      "commentsCount": 2000,
+      "createAt": "13 hrs "
+    },
+    {
+      "id": 2,
+      "user": {
+        "name": "Lucas Teixeira",
+        "city": "New York",
+        "profileImageUrl": "https://avatars.githubusercontent.com/u/81398225?v=4",
+        "login": "lucas"
+      },
+      "card": {
+        "title": "here we go, other post for development feed.",
+        "imageUrl": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+      },
+      "likesCount": 15500,
+      "commentsCount": 5200,
+      "createAt": "10 hrs"
+    },
+    {
+      "id": 3,
+      "user": {
+        "name": "Jane Doe",
+        "city": "Natal",
+        "profileImageUrl": "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+        "login": "jane_doe"
+      },
+      "card": {
+        "title": "Diretamente de Natal, imagem de drone, uma maravilha de lugar.",
+        "imageUrl": "https://images.unsplash.com/photo-1530789253388-582c481c54b0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+      },
+      "likesCount": 21500,
+      "commentsCount": 28400,
+      "createAt": "5 hrs"
+    }
+  ]
+}

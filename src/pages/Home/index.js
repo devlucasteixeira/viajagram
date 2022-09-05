@@ -1,5 +1,6 @@
 import { Aside, Container, Header, MainContainer, MainContent } from './styles';
 import UserInfoComponent from './UserInfo';
+import Feed from '../../components/Feed';
 
 const Home = () => {
   return (
@@ -10,7 +11,7 @@ const Home = () => {
         </Header>
         <MainContainer>
           <MainContent>
-            <h1>CONTAINER 1</h1>
+            <Feed />
           </MainContent>
           <Aside>
             <UserInfoComponent />

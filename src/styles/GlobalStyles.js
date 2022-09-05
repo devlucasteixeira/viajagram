@@ -7,6 +7,16 @@ export default createGlobalStyle`
   box-sizing: border-box;
 }
 
+textarea, button{
+  font-family: inherit;
+}
+
+button, a {
+  cursor: pointer;
+  border: none;
+  background-color: inherit;
+}
+
 html,
 body {
   font: 500 1.6rem;
@@ -16,7 +26,6 @@ body {
   margin: 0;
   width: 100vw;
   height: 100vh;
-  background-color: black;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;

@@ -1,0 +1,103 @@
+{
+  "comments": [
+    {
+      "id": 1,
+      "postId": 1,
+      "user": {
+        "name": "Jorge Nascimento",
+        "city": "São Paulo",
+        "profileImageUrl": "https://avatars.githubusercontent.com/u/62806739?v=4",
+        "login": "nascimento_"
+      },
+      "text": "Olha esse comentário de exemplo para esse post 1"
+    },
+    {
+      "id": 524,
+      "postId": 1,
+      "user": {
+        "name": "Jorge Nascimento",
+        "city": "São Paulo",
+        "profileImageUrl": "https://avatars.githubusercontent.com/u/62806739?v=4",
+        "login": "nascimento_"
+      },
+      "text": "Olha esse comentário de exemplo"
+    },
+    {
+      "id": 754,
+      "postId": 1,
+      "user": {
+        "name": "Jorge Nascimento",
+        "city": "São Paulo",
+        "profileImageUrl": "https://avatars.githubusercontent.com/u/62806739?v=4",
+        "login": "nascimento_"
+      },
+      "text": "Olha esse comentário de exemplo"
+    },
+    {
+      "id": 542,
+      "postId": 1,
+      "user": {
+        "name": "Jorge Nascimento",
+        "city": "São Paulo",
+        "profileImageUrl": "https://avatars.githubusercontent.com/u/62806739?v=4",
+        "login": "nascimento_"
+      },
+      "text": "Olha esse comentário de exemplo"
+    },
+    {
+      "id": 652,
+      "postId": 1,
+      "user": {
+        "name": "Jorge Nascimento",
+        "city": "São Paulo",
+        "profileImageUrl": "https://avatars.githubusercontent.com/u/62806739?v=4",
+        "login": "nascimento_"
+      },
+      "text": "Olha esse comentário de exemplo"
+    },
+    {
+      "id": 5546,
+      "postId": 1,
+      "user": {
+        "name": "Jorge Nascimento",
+        "city": "São Paulo",
+        "profileImageUrl": "https://avatars.githubusercontent.com/u/62806739?v=4",
+        "login": "nascimento_"
+      },
+      "text": "Olha esse comentário de exemplo"
+    },
+    {
+      "id": 5698,
+      "postId": 1,
+      "user": {
+        "name": "Jorge Nascimento",
+        "city": "São Paulo",
+        "profileImageUrl": "https://avatars.githubusercontent.com/u/62806739?v=4",
+        "login": "nascimento_"
+      },
+      "text": "Olha esse comentário de exemplo"
+    },
+    {
+      "id": 2,
+      "postId": 2,
+      "user": {
+        "name": "Lucas Teixeira",
+        "city": "New York",
+        "profileImageUrl": "https://avatars.githubusercontent.com/u/81398225?v=4",
+        "login": "lucas"
+      },
+      "text": "Olha esse comentário de exemplo para esse post 2"
+    },
+    {
+      "id": 3,
+      "postId": 2,
+      "user": {
+        "name": "John Doe",
+        "city": "New York",
+        "profileImageUrl": "https://cdn.icon-icons.com/icons2/11/PNG/128/customer_person_people_man_user_client_1629.png",
+        "login": "john"
+      },
+      "text": "Olha esse outro comentário de exemplo para esse post 2"
+    }
+  ]
+}
