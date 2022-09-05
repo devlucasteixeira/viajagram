@@ -29,13 +29,13 @@ export const MainContainer = styled.main`
 
 export const MainContent = styled.div`
   flex: 1.3;
-
   width: 60%;
   max-width: 550px;
-  /* background: red; */
 `;
 
 export const Aside = styled.div`
+  display: flex;
+  flex-direction: column;
   flex: 1;
-  background: green;
+  padding: 15px;
 `;
