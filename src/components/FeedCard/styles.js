@@ -6,7 +6,6 @@ export const Container = styled.div`
 
   background-color: ${props => props.theme.CARD};
   color: ${props => props.theme.BLACK};
-  overflow: hidden;
 
   min-height: 300px;
 

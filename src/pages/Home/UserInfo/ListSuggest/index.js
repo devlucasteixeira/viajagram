@@ -10,7 +10,6 @@ import {
 } from './style';
 
 const ListSuggest = ({ users }) => {
-  console.log(users.length);
   return (
     <ListContainer>
       {users.map((user, index) => (

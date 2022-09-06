@@ -19,20 +19,20 @@ import { FaComment } from 'react-icons/fa';
 import ModalComments from '../ModalComments';
 import FormPublishComment from '../FormPublishComment';
 import ProfileHeader from '../ProfileHeader';
-import CardPhotos from '../CardPhotos';
+import Slider from '../Slider';
 
 function FeedCard({ post, commentsList }) {
-  const [isCardLoading, setIsCardLoading] = useState(true);
+  const [isCardLoading, setIsCardLoading] = useState(false);
   const [openModalComments, setOpenModalComments] = useState(false);
   const [comments, setComments] = useState(commentsList);
 
   const { id, user, card, likesCount, commentsCount, createAt } = post;
 
-  useEffect(() => {
-    setTimeout(() => {
-      setIsCardLoading(false);
-    }, 1500);
-  }, []);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setIsCardLoading(false);
+  //   }, 1500);
+  // }, []);
 
   const toggleModalComments = useCallback(event => {
     event.stopPropagation();
@@ -73,7 +73,7 @@ function FeedCard({ post, commentsList }) {
 
       <CardTitle>{card.title}</CardTitle>
 
-      <CardPhotos imageUrl={card.imageUrl} />
+      <Slider images={card.imagesUrl} />
 
       <CardActions>
         <LikedButton>
