@@ -29,7 +29,7 @@ export const Container = styled.form`
       transition: fill 300ms;
     }
     &:hover svg {
-      fill: #f5f25a;
+      fill: #a7982a;
     }
   }
 `;

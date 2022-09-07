@@ -27,6 +27,13 @@ export const CardTitle = styled.p`
   word-break: break-all;
 `;
 
+export const CardPhoto = styled.div`
+  width: 502px;
+  border-radius: 22px;
+
+  overflow: hidden;
+`;
+
 export const CardActions = styled.section`
   display: flex;
   justify-content: flex-end;

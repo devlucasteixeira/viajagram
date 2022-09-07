@@ -38,4 +38,8 @@ export const Aside = styled.div`
   flex-direction: column;
   flex: 1;
   padding: 15px;
+
+  /* @media screen and (max-width: 560px) {
+
+  } */
 `;

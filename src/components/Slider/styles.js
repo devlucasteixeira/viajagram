@@ -2,10 +2,6 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 100%;
-  height: 350px;
-
-  border-radius: 22px;
-
   position: relative;
 
   overflow: hidden;
@@ -13,16 +9,17 @@ export const Container = styled.div`
 
 export const SliderWrapper = styled.div`
   height: 100%;
-  width: ${({ width }) => width * 500}px;
+  width: ${({ slidesLength, containerWidth }) =>
+    slidesLength * containerWidth}px;
 
   display: flex;
-  gap: 0 4px;
+  /* gap: 0 4px; */
 
   transform: translateX(${({ translateX }) => translateX}px);
 
   overflow-x: scroll;
   scroll-snap-type: x mandatory;
-  transition: transform 500ms;
+  transition: transform 500ms ease-in-out;
 
   &::-webkit-scrollbar {
     display: none;
@@ -30,18 +27,12 @@ export const SliderWrapper = styled.div`
 
   -ms-overflow-style: none;
   scrollbar-width: none;
+`;
 
-  img {
-    width: 100%;
-    max-width: 500px;
-    /* height: 100%; */
-    border-radius: 16px;
-    border-radius: 22px;
+export const Image = styled.img`
+  width: ${({ width }) => width}px;
 
-    box-shadow: rgba(0px 0px 18px -3px #000000);
-
-    object-fit: cover;
-  }
+  object-fit: cover;
 `;
 
 export const ButtonsSliderContainer = styled.div`
@@ -62,7 +53,7 @@ export const ButtonsSliderContainer = styled.div`
 
     border-radius: 50%;
 
-    background-color: #a8a8a8;
+    background-color: #e9e9e5;
     color: rgb(38, 38, 38);
 
     position: absolute;

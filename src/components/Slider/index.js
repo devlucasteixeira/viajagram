@@ -1,11 +1,27 @@
+import { useRef } from 'react';
 import { useEffect, useLayoutEffect, useState } from 'react';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
-import { ButtonsSliderContainer, Container, SliderWrapper } from './styles';
+import {
+  ButtonsSliderContainer,
+  Container,
+  SliderWrapper,
+  Image,
+} from './styles';
 
 function Slider({ images }) {
   const [translateX, setTranslateX] = useState(0);
   const [slides, setSlides] = useState({});
+  const [widthContainerSlider, setWidthContainerSlider] = useState(0);
+  const containerSliderRef = useRef(null);
+
+  useEffect(() => {
+    setWidthContainerSlider(
+      containerSliderRef.current.getBoundingClientRect().width,
+    );
+  }, []);
+
+  console.log(widthContainerSlider);
 
   useEffect(() => {
     if (images instanceof Array) {
@@ -30,7 +46,7 @@ function Slider({ images }) {
   }, [slides.currentSlide, slides.slidesLength, slides]);
 
   function handleClickNext() {
-    setTranslateX(prevState => prevState - 504);
+    setTranslateX(prevState => prevState - widthContainerSlider);
     setSlides({
       ...slides,
       currentSlide: slides.currentSlide + 1,
@@ -41,7 +57,7 @@ function Slider({ images }) {
     if (translateX === 0) {
       return;
     }
-    setTranslateX(prevState => prevState + 504);
+    setTranslateX(prevState => prevState + widthContainerSlider);
     setSlides({
       ...slides,
       currentSlide: slides.currentSlide - 1,
@@ -49,14 +65,22 @@ function Slider({ images }) {
   }
 
   return (
-    <Container>
-      <SliderWrapper width={slides.slidesLength} translateX={translateX}>
+    <Container ref={containerSliderRef}>
+      <SliderWrapper
+        slidesLength={slides.slidesLength}
+        containerWidth={widthContainerSlider}
+        translateX={translateX}>
         {slides.slidesLength > 0 ? (
           slides.images.map(image => (
-            <img key={image} src={image} alt="description" />
+            <Image
+              key={image}
+              src={image}
+              alt="description"
+              width={widthContainerSlider}
+            />
           ))
         ) : (
-          <img src={images} alt="description" />
+          <Image src={images} alt="description" width={widthContainerSlider} />
         )}
       </SliderWrapper>
       {slides.slidesLength && (

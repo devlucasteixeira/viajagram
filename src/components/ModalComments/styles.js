@@ -23,8 +23,8 @@ export const Overlay = styled.div`
 `;
 
 export const ModalWrapper = styled.div`
-  width: 700px;
-  height: 450px;
+  width: 800px;
+  height: 500px;
 
   display: flex;
 
@@ -41,12 +41,9 @@ export const PostMidia = styled.div`
 
   background-color: black;
 
-  img {
-    width: 100%;
-    height: 100%;
-
-    object-fit: contain;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const CommentsContainer = styled.div`

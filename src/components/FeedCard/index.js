@@ -6,6 +6,7 @@ import {
   Container,
   CardHeader,
   CardTitle,
+  CardPhoto,
   CardActions,
   LikedButton,
   CommentsButton,
@@ -73,7 +74,9 @@ function FeedCard({ post, commentsList }) {
 
       <CardTitle>{card.title}</CardTitle>
 
-      <Slider images={card.imagesUrl} />
+      <CardPhoto>
+        <Slider images={card.imagesUrl} />
+      </CardPhoto>
 
       <CardActions>
         <LikedButton>
