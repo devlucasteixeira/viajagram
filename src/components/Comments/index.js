@@ -1,4 +1,4 @@
-import Message from '../Message';
+import FallbackMessage from '../FallbackMessage';
 import {
   CommentsContainer,
   CommentContainer,
@@ -31,7 +31,7 @@ function Comments({ postId, commentsList }) {
           );
         })
       ) : (
-        <Message>Nenhum comentário para o post.</Message>
+        <FallbackMessage>Nenhum comentário para o post.</FallbackMessage>
       )}
     </CommentsContainer>
   );

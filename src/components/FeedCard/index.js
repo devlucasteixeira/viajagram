@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useState } from 'react';
 
 import { formatTotalCommentsAndLikes } from '../../helpers/formatTotalCommentsAndLikes';
 
@@ -23,17 +23,10 @@ import ProfileHeader from '../ProfileHeader';
 import Slider from '../Slider';
 
 function FeedCard({ post, commentsList }) {
-  const [isCardLoading, setIsCardLoading] = useState(false);
   const [openModalComments, setOpenModalComments] = useState(false);
   const [comments, setComments] = useState(commentsList);
 
   const { id, user, card, likesCount, commentsCount, createAt } = post;
-
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setIsCardLoading(false);
-  //   }, 1500);
-  // }, []);
 
   const toggleModalComments = useCallback(event => {
     event.stopPropagation();
@@ -41,19 +34,6 @@ function FeedCard({ post, commentsList }) {
       setOpenModalComments(prevState => !prevState);
     }
   }, []);
-
-  if (isCardLoading) {
-    return (
-      <Container
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}>
-        <Spinner />;
-      </Container>
-    );
-  }
 
   return (
     <Container key={id}>
