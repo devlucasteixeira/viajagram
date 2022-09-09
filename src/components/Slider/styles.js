@@ -13,12 +13,12 @@ export const SliderWrapper = styled.div`
     slidesLength * containerWidth}px;
 
   display: flex;
-  /* gap: 0 4px; */
 
   transform: translateX(${({ translateX }) => translateX}px);
+  background-color: rgba(0, 0, 0, 0.8);
 
   overflow-x: scroll;
-  scroll-snap-type: x mandatory;
+  scroll-snap-type: x proximity;
   transition: transform 500ms ease-in-out;
 
   &::-webkit-scrollbar {
@@ -30,8 +30,7 @@ export const SliderWrapper = styled.div`
 `;
 
 export const Image = styled.img`
-  max-width: ${({ width }) => width}px;
-  width: 100%;
+  max-width: ${({ widthContainer }) => widthContainer}px;
 
   object-fit: cover;
 `;

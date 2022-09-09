@@ -12,6 +12,8 @@ export const Container = styled.div`
   margin-bottom: 20px;
 
   padding: 0 8px;
+
+  overflow: hidden;
 `;
 
 export const CardHeader = styled.header`
@@ -28,7 +30,7 @@ export const CardTitle = styled.p`
 `;
 
 export const CardPhoto = styled.div`
-  width: 502px;
+  max-width: 502px;
 
   border-radius: 22px;
 
