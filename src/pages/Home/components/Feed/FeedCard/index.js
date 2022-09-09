@@ -1,6 +1,14 @@
 import { useCallback, useState } from 'react';
 
-import { formatTotalCommentsAndLikes } from '../../helpers/formatTotalCommentsAndLikes';
+import { formatTotalCommentsAndLikes } from '../../../../../helpers/formatTotalCommentsAndLikes';
+
+import ModalComments from '../ModalComments';
+import FormPublishComment from '../FormPublishComment';
+import ProfileHeader from '../../../../../components/ProfileHeader';
+import Slider from '../../../../../components/Slider';
+
+import { BsFillHeartFill } from 'react-icons/bs';
+import { FaComment } from 'react-icons/fa';
 
 import {
   Container,
@@ -11,14 +19,6 @@ import {
   LikedButton,
   CommentsButton,
 } from './styles';
-
-import { BsFillHeartFill } from 'react-icons/bs';
-import { FaComment } from 'react-icons/fa';
-
-import ModalComments from '../ModalComments';
-import FormPublishComment from '../FormPublishComment';
-import ProfileHeader from '../ProfileHeader';
-import Slider from '../Slider';
 
 function FeedCard({ post, commentsList }) {
   const [openModalComments, setOpenModalComments] = useState(false);

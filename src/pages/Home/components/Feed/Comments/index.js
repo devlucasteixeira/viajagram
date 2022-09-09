@@ -1,4 +1,4 @@
-import FallbackMessage from '../FallbackMessage';
+import FallbackMessage from '../../../../../components/FallbackMessage';
 import {
   CommentsContainer,
   CommentContainer,

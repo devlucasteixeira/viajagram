@@ -1,6 +1,6 @@
 import { Aside, Container, Header, MainContainer, MainContent } from './styles';
-import UserInfoComponent from './UserInfo';
-import Feed from '../../components/Feed';
+import UserInfoComponent from './components/UserInfo';
+import Feed from './components/Feed';
 
 const Home = () => {
   return (

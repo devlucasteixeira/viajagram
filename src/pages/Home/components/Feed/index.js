@@ -1,10 +1,10 @@
-import FeedCard from '../FeedCard';
+import FeedCard from './FeedCard';
 
-import postList from '../../data/posts.json';
-import commentsList from '../../data/comments.json';
+import postList from '../../../../data/posts.json';
+import commentsList from '../../../../data/comments.json';
 
 import { Container } from './styles';
-import FallbackMessage from '../FallbackMessage';
+import FallbackMessage from '../../../../components/FallbackMessage';
 
 const { posts } = postList;
 // const posts = [];

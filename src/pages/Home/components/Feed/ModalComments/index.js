@@ -1,4 +1,9 @@
+import { useEffect, useCallback } from 'react';
+
 import Comment from '../Comments';
+import FormPublishComment from '../FormPublishComment';
+import ProfileHeader from '../../../../../components/ProfileHeader';
+import Slider from '../../../../../components/Slider';
 import {
   CloseButton,
   CommentList,
@@ -9,10 +14,6 @@ import {
 } from './styles';
 
 import { FiXCircle } from 'react-icons/fi';
-import { useEffect, useCallback } from 'react';
-import FormPublishComment from '../FormPublishComment';
-import ProfileHeader from '../ProfileHeader';
-import Slider from '../Slider';
 
 function ModalComments({
   onToggleModal,
