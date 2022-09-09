@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
   width: 100%;
@@ -30,7 +30,8 @@ export const SliderWrapper = styled.div`
 `;
 
 export const Image = styled.img`
-  width: ${({ width }) => width}px;
+  max-width: ${({ width }) => width}px;
+  width: 100%;
 
   object-fit: cover;
 `;
@@ -72,4 +73,35 @@ export const ButtonsSliderContainer = styled.div`
   button.previous {
     left: 8px;
   }
+`;
+
+export const NavDots = styled.nav`
+  position: absolute;
+  bottom: 4px;
+  left: 0;
+
+  height: 30px;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0 4px;
+`;
+
+export const Dot = styled.button`
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background-color: rgba(255, 255, 255, 0.5);
+
+  transition: background-color 300ms;
+
+  ${({ dotIndex, currentSlide }) =>
+    dotIndex === currentSlide &&
+    css`
+      background-color: rgba(255, 255, 255);
+    `}
 `;

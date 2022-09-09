@@ -12,8 +12,6 @@ import {
   CommentsButton,
 } from './styles';
 
-import Spinner from '../Spinner';
-
 import { BsFillHeartFill } from 'react-icons/bs';
 import { FaComment } from 'react-icons/fa';
 

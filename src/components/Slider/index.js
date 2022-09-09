@@ -1,5 +1,4 @@
-import { useRef } from 'react';
-import { useEffect, useLayoutEffect, useState } from 'react';
+import { useEffect, useLayoutEffect, useState, useRef, useMemo } from 'react';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
 import {
@@ -7,12 +6,15 @@ import {
   Container,
   SliderWrapper,
   Image,
+  NavDots,
+  Dot,
 } from './styles';
 
 function Slider({ images }) {
   const [translateX, setTranslateX] = useState(0);
   const [slides, setSlides] = useState({});
   const [widthContainerSlider, setWidthContainerSlider] = useState(0);
+
   const containerSliderRef = useRef(null);
 
   useEffect(() => {
@@ -20,8 +22,6 @@ function Slider({ images }) {
       containerSliderRef.current.getBoundingClientRect().width,
     );
   }, []);
-
-  console.log(widthContainerSlider);
 
   useEffect(() => {
     if (images instanceof Array) {
@@ -45,6 +45,16 @@ function Slider({ images }) {
     }
   }, [slides.currentSlide, slides.slidesLength, slides]);
 
+  const slideTranslateByIndex = useMemo(() => {
+    return (
+      slides.slidesLength > 0 &&
+      Array.from(
+        { length: slides.slidesLength },
+        (_, index) => widthContainerSlider * index,
+      )
+    );
+  }, [slides.slidesLength, widthContainerSlider]);
+
   function handleClickNext() {
     setTranslateX(prevState => prevState - widthContainerSlider);
     setSlides({
@@ -64,6 +74,15 @@ function Slider({ images }) {
     });
   }
 
+  function handleChangeSlide(dotIndex) {
+    setSlides({
+      ...slides,
+      currentSlide: dotIndex,
+    });
+
+    setTranslateX(() => -slideTranslateByIndex[dotIndex]);
+  }
+
   return (
     <Container ref={containerSliderRef}>
       <SliderWrapper
@@ -71,11 +90,11 @@ function Slider({ images }) {
         containerWidth={widthContainerSlider}
         translateX={translateX}>
         {slides.slidesLength > 0 ? (
-          slides.images.map(image => (
+          slides.images.map((image, index) => (
             <Image
-              key={image}
+              key={index}
               src={image}
-              alt="description"
+              alt={`slide ${index}`}
               width={widthContainerSlider}
             />
           ))
@@ -84,16 +103,27 @@ function Slider({ images }) {
         )}
       </SliderWrapper>
       {slides.slidesLength && (
-        <ButtonsSliderContainer>
-          {translateX < 0 && (
-            <button className="previous" onClick={handleClickPrevious}>
-              <FaArrowLeft size={10} />
+        <>
+          <ButtonsSliderContainer>
+            {translateX < 0 && (
+              <button className="previous" onClick={handleClickPrevious}>
+                <FaArrowLeft size={10} />
+              </button>
+            )}
+            <button className="next" onClick={handleClickNext}>
+              <FaArrowRight size={10} />{' '}
             </button>
-          )}
-          <button className="next" onClick={handleClickNext}>
-            <FaArrowRight size={10} />{' '}
-          </button>
-        </ButtonsSliderContainer>
+          </ButtonsSliderContainer>
+          <NavDots>
+            {slides.images.map((_, index) => (
+              <Dot
+                key={index}
+                dotIndex={index}
+                currentSlide={slides.currentSlide}
+                onClick={() => handleChangeSlide(index)}></Dot>
+            ))}
+          </NavDots>
+        </>
       )}
     </Container>
   );

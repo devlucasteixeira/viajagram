@@ -29,6 +29,7 @@ export const CardTitle = styled.p`
 
 export const CardPhoto = styled.div`
   width: 502px;
+
   border-radius: 22px;
 
   overflow: hidden;
