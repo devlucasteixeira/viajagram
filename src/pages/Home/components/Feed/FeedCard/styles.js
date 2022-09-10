@@ -26,7 +26,7 @@ export const CardTitle = styled.p`
   margin: 8px 0;
   font-size: 1.3rem;
 
-  word-break: break-all;
+  word-break: keep-all;
 `;
 
 export const CardPhoto = styled.div`

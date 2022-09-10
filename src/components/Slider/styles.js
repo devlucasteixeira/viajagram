@@ -11,6 +11,7 @@ export const SliderWrapper = styled.div`
   height: 100%;
   width: ${({ slidesLength, containerWidth }) =>
     slidesLength * containerWidth}px;
+  min-height: 300px;
 
   display: flex;
 
