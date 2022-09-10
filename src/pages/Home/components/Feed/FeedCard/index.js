@@ -7,7 +7,7 @@ import FormPublishComment from '../FormPublishComment';
 import ProfileHeader from '../../../../../components/ProfileHeader';
 import Slider from '../../../../../components/Slider';
 
-import { BsFillHeartFill } from 'react-icons/bs';
+import { BsFillHeartFill, BsHeart } from 'react-icons/bs';
 import { FaComment } from 'react-icons/fa';
 
 import {
@@ -23,6 +23,7 @@ import {
 function FeedCard({ post, commentsList }) {
   const [openModalComments, setOpenModalComments] = useState(false);
   const [comments, setComments] = useState(commentsList);
+  const [liked, setLiked] = useState(false);
 
   const { id, user, card, likesCount, commentsCount, createAt } = post;
 
@@ -57,12 +58,16 @@ function FeedCard({ post, commentsList }) {
       </CardPhoto>
 
       <CardActions>
-        <LikedButton>
-          <BsFillHeartFill size={18} color="#E77F76" />
+        <LikedButton onClick={() => setLiked(prevState => !prevState)}>
+          {liked ? (
+            <BsFillHeartFill size={18} color="#E77F76" />
+          ) : (
+            <BsHeart size={18} color="#333" />
+          )}
           <span>{formatTotalCommentsAndLikes(likesCount)} likes</span>
         </LikedButton>
         <CommentsButton onClick={toggleModalComments}>
-          <FaComment size={18} />
+          <FaComment size={18} color="#555" />
           <span>{formatTotalCommentsAndLikes(commentsCount)} comentários</span>
         </CommentsButton>
       </CardActions>
