@@ -1,4 +1,9 @@
+import { useEffect, useCallback } from 'react';
+
 import Comment from '../Comments';
+import FormPublishComment from '../FormPublishComment';
+import ProfileHeader from '../../../../../components/ProfileHeader';
+import Slider from '../../../../../components/Slider';
 import {
   CloseButton,
   CommentList,
@@ -9,10 +14,6 @@ import {
 } from './styles';
 
 import { FiXCircle } from 'react-icons/fi';
-import { useEffect } from 'react';
-import { useCallback } from 'react';
-import FormPublishComment from '../FormPublishComment';
-import ProfileHeader from '../ProfileHeader';
 
 function ModalComments({
   onToggleModal,
@@ -38,13 +39,13 @@ function ModalComments({
     return () => window.removeEventListener('keydown', keyDownEvent);
   }, [handleKeyEsc]);
 
-  const { imageUrl } = card;
+  const { imagesUrl } = card;
 
   return (
     <Overlay onClick={onToggleModal}>
       <ModalWrapper>
         <PostMidia>
-          <img src={imageUrl} alt="card content" />
+          <Slider images={imagesUrl} />
         </PostMidia>
 
         <CommentsContainer>

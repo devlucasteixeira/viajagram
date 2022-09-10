@@ -1,10 +1,10 @@
-import FeedCard from '../FeedCard';
+import FeedCard from './FeedCard';
 
-import postList from '../../data/posts.json';
-import commentsList from '../../data/comments.json';
+import postList from '../../../../data/posts.json';
+import commentsList from '../../../../data/comments.json';
 
 import { Container } from './styles';
-import Message from '../Message';
+import FallbackMessage from '../../../../components/FallbackMessage';
 
 const { posts } = postList;
 // const posts = [];
@@ -18,7 +18,7 @@ function Feed() {
           <FeedCard key={post.id} post={post} commentsList={comments} />
         ))
       ) : (
-        <Message>Nenhum post disponível</Message>
+        <FallbackMessage>Nenhum post disponível</FallbackMessage>
       )}
     </Container>
   );

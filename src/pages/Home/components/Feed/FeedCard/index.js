@@ -1,6 +1,14 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useState } from 'react';
 
-import { formatCount } from '../../helpers/formatCount';
+import { formatTotalCommentsAndLikes } from '../../../../../helpers/formatTotalCommentsAndLikes';
+
+import ModalComments from '../ModalComments';
+import FormPublishComment from '../FormPublishComment';
+import ProfileHeader from '../../../../../components/ProfileHeader';
+import Slider from '../../../../../components/Slider';
+
+import { BsFillHeartFill, BsHeart } from 'react-icons/bs';
+import { FaComment } from 'react-icons/fa';
 
 import {
   Container,
@@ -12,27 +20,12 @@ import {
   CommentsButton,
 } from './styles';
 
-import Spinner from '../Spinner';
-
-import { BsFillHeartFill } from 'react-icons/bs';
-import { FaComment } from 'react-icons/fa';
-
-import ModalComments from '../ModalComments';
-import FormPublishComment from '../FormPublishComment';
-import ProfileHeader from '../ProfileHeader';
-
 function FeedCard({ post, commentsList }) {
-  const [isCardLoading, setIsCardLoading] = useState(true);
   const [openModalComments, setOpenModalComments] = useState(false);
   const [comments, setComments] = useState(commentsList);
+  const [liked, setLiked] = useState(false);
 
   const { id, user, card, likesCount, commentsCount, createAt } = post;
-
-  useEffect(() => {
-    setTimeout(() => {
-      setIsCardLoading(false);
-    }, 1500);
-  }, []);
 
   const toggleModalComments = useCallback(event => {
     event.stopPropagation();
@@ -40,19 +33,6 @@ function FeedCard({ post, commentsList }) {
       setOpenModalComments(prevState => !prevState);
     }
   }, []);
-
-  if (isCardLoading) {
-    return (
-      <Container
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}>
-        <Spinner />;
-      </Container>
-    );
-  }
 
   return (
     <Container key={id}>
@@ -74,17 +54,21 @@ function FeedCard({ post, commentsList }) {
       <CardTitle>{card.title}</CardTitle>
 
       <CardPhoto>
-        <img src={card.imageUrl} alt="card alt" />
+        <Slider images={card.imagesUrl} />
       </CardPhoto>
 
       <CardActions>
-        <LikedButton>
-          <BsFillHeartFill size={18} color="#E77F76" />
-          <span>{formatCount(likesCount)} likes</span>
+        <LikedButton onClick={() => setLiked(prevState => !prevState)}>
+          {liked ? (
+            <BsFillHeartFill size={18} color="#E77F76" />
+          ) : (
+            <BsHeart size={18} color="#333" />
+          )}
+          <span>{formatTotalCommentsAndLikes(likesCount)} likes</span>
         </LikedButton>
         <CommentsButton onClick={toggleModalComments}>
-          <FaComment size={18} />
-          <span>{formatCount(commentsCount)} comentários</span>
+          <FaComment size={18} color="#555" />
+          <span>{formatTotalCommentsAndLikes(commentsCount)} comentários</span>
         </CommentsButton>
       </CardActions>
 

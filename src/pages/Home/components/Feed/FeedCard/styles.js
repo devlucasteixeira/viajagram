@@ -6,13 +6,14 @@ export const Container = styled.div`
 
   background-color: ${props => props.theme.CARD};
   color: ${props => props.theme.BLACK};
-  overflow: hidden;
 
   min-height: 300px;
 
   margin-bottom: 20px;
 
   padding: 0 8px;
+
+  overflow: hidden;
 `;
 
 export const CardHeader = styled.header`
@@ -25,27 +26,15 @@ export const CardTitle = styled.p`
   margin: 8px 0;
   font-size: 1.3rem;
 
-  word-break: break-all;
+  word-break: keep-all;
 `;
 
 export const CardPhoto = styled.div`
-  min-height: 200px;
-  max-height: 380px;
-
-  border-radius: 16px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  max-width: 502px;
 
   border-radius: 22px;
 
   overflow: hidden;
-
-  img {
-    width: 100%;
-    border-radius: 22px;
-  }
 `;
 
 export const CardActions = styled.section`

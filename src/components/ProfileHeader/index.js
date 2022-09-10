@@ -5,7 +5,6 @@ import ButtonDotsHorizontalMenu from '../ButtonDotsHorizontalMenu';
 import { Container, CardAuthor } from './styles';
 
 function ProfileHeader({ user, createAt }) {
-  console.log(user.profileImageUrl);
   return (
     <Container>
       <CardAuthor>

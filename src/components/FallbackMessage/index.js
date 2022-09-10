@@ -1,7 +1,7 @@
 import { Paragraph } from './styles';
 
-function Message({ children }) {
+function FallbackMessage({ children }) {
   return <Paragraph>{children}</Paragraph>;
 }
 
-export default Message;
+export default FallbackMessage;
