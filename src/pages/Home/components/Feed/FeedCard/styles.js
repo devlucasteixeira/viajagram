@@ -30,6 +30,7 @@ export const CardTitle = styled.p`
 `;
 
 export const CardPhoto = styled.div`
+  width: 100%;
   max-width: 502px;
 
   border-radius: 22px;

@@ -36,10 +36,10 @@ export const MainContent = styled.div`
 export const Aside = styled.div`
   display: flex;
   flex-direction: column;
-  flex: 1;
+  flex: 0.7;
   padding: 15px;
 
-  /* @media screen and (max-width: 560px) {
-
-  } */
+  @media screen and (max-width: 900px) {
+    display: none;
+  }
 `;

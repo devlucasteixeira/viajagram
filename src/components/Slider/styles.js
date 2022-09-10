@@ -8,7 +8,6 @@ export const Container = styled.div`
 `;
 
 export const SliderWrapper = styled.div`
-  height: 100%;
   width: ${({ slidesLength, containerWidth }) =>
     slidesLength * containerWidth}px;
   min-height: 300px;
@@ -31,7 +30,8 @@ export const SliderWrapper = styled.div`
 `;
 
 export const Image = styled.img`
-  max-width: ${({ widthContainer }) => widthContainer}px;
+  display: block;
+  width: ${({ widthContainer }) => widthContainer}px;
 
   object-fit: cover;
 `;

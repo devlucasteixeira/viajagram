@@ -1,6 +1,6 @@
 import { useEffect, useLayoutEffect, useState, useRef, useMemo } from 'react';
 
-import { debounce } from '../../helpers/debouce';
+import { debounce } from '../../helpers/debounce';
 
 import Spinner from '../Slider';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
@@ -18,22 +18,16 @@ function Slider({ images }) {
   const [translateX, setTranslateX] = useState(0);
   const [slides, setSlides] = useState({});
   const [widthContainerSlider, setWidthContainerSlider] = useState(0);
-  const [sliderLoading, setSliderLoading] = useState(false);
+  // const [sliderLoading, setSliderLoading] = useState(false);
   const containerSliderRef = useRef(null);
 
-  const handleResize = debounce(
+  const handleWindowResize = debounce(
     () =>
       setWidthContainerSlider(
         containerSliderRef.current.getBoundingClientRect().width,
       ),
     200,
   );
-
-  useLayoutEffect(() => {
-    setWidthContainerSlider(
-      containerSliderRef.current.getBoundingClientRect().width,
-    );
-  }, []);
 
   useEffect(() => {
     if (images instanceof Array) {
@@ -47,10 +41,6 @@ function Slider({ images }) {
     }
   }, [images]);
 
-  useEffect(() => {
-    setTimeout(() => setSliderLoading(false), 2000);
-  }, []);
-
   useLayoutEffect(() => {
     if (slides.currentSlide >= slides.slidesLength) {
       setTranslateX(0);
@@ -62,10 +52,16 @@ function Slider({ images }) {
   }, [slides.currentSlide, slides.slidesLength, slides]);
 
   useEffect(() => {
-    const winResize = window.addEventListener('resize', handleResize);
+    const winResize = window.addEventListener('resize', handleWindowResize);
 
     return () => window.removeEventListener('resize', winResize);
-  }, [handleResize]);
+  }, [handleWindowResize]);
+
+  useEffect(() => {
+    setWidthContainerSlider(
+      containerSliderRef.current.getBoundingClientRect().width,
+    );
+  }, []);
 
   const slideTranslateByIndex = useMemo(() => {
     return (
